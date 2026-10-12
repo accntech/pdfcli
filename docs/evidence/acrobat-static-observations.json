@@ -1,0 +1,230 @@
+{
+  "authority": "supplementary-static-shell-observation",
+  "not_rea_evidence": true,
+  "artifact": "/Applications/Adobe Acrobat DC/Adobe Acrobat.app/Contents/Frameworks/Acrobat.framework/Versions/A/Acrobat",
+  "sha256": "ddbe975f487125b09dc8038fe91a6d1f106b070ba62069f8cc6ec2928fe27bd1",
+  "arm64_slice_file_offset": 83263488,
+  "limitations": [
+    "No target execution.",
+    "RTTI association is derived, not source recovery.",
+    "String presence does not prove a branch is enabled."
+  ],
+  "records": [
+    {
+      "path": "/Applications/Adobe Acrobat DC/Adobe Acrobat.app/Contents/Resources/AcroApp/ENU/Combine.aapp",
+      "sha256": "fbdbef43d37c8b3543953eb0889afda694c8394d7dd1170ad27b8ed852f6e80a",
+      "parser": "Python xml.etree.ElementTree",
+      "observed": {
+        "application": {
+          "title": "Combine Files",
+          "av2Title": "Combine files",
+          "description": "Combine multiple files into a single PDF",
+          "richTooltip": "Merge multiple files into a single PDF for easy storing and sharing.",
+          "av2Description": "Merge multiple files into a single PDF",
+          "id": "CombineApp",
+          "showLabels": "true",
+          "requiresDoc": "false",
+          "majorVersion": "1",
+          "minorVersion": "0"
+        },
+        "commands": [
+          {
+            "name": "NewDocCombineFiles"
+          }
+        ],
+        "selected_components": [
+          {
+            "type": "Custom",
+            "buttonType": "buttonCTA",
+            "name": "MultiFileViewPerformCombine"
+          },
+          {
+            "type": "PushButton",
+            "buttonType": "buttonCTA",
+            "name": "CombineAddFilesExecute",
+            "vAlign": "center",
+            "fontSize": "15",
+            "bold": "true"
+          },
+          {
+            "name": "MultiFileViewDocMoveUp"
+          },
+          {
+            "name": "MultiFileViewDocMoveDown"
+          },
+          {
+            "type": "Custom",
+            "buttonType": "buttonCTA",
+            "name": "MultiFileViewPerformCombine"
+          },
+          {
+            "type": "Custom",
+            "buttonType": "buttonCTA",
+            "name": "MultiFileViewPerformCombine"
+          },
+          {
+            "name": "MultiFileViewDocMoveUp"
+          },
+          {
+            "name": "MultiFileViewDocMoveDown"
+          },
+          {
+            "type": "Custom",
+            "buttonType": "buttonCTA",
+            "name": "MultiFileViewPerformCombine"
+          },
+          {
+            "type": "Custom",
+            "buttonType": "buttonCTA",
+            "name": "MultiFileViewPerformCombine"
+          },
+          {
+            "type": "PushButton",
+            "buttonType": "buttonCTA",
+            "name": "CombineAddFilesExecute",
+            "vAlign": "center",
+            "fontSize": "14",
+            "bold": "true"
+          },
+          {
+            "type": "Custom",
+            "buttonType": "buttonCTA",
+            "name": "MultiFileViewPerformCombine",
+            "label": "Combine with Acrobat Pro"
+          },
+          {
+            "type": "PushButton",
+            "buttonType": "buttonCTA",
+            "name": "CombineAddFilesExecute",
+            "vAlign": "center",
+            "fontSize": "14",
+            "bold": "true"
+          },
+          {
+            "type": "Custom",
+            "buttonType": "buttonCTA",
+            "name": "MultiFileViewPerformCombine",
+            "label": "Upgrade to Combine"
+          },
+          {
+            "type": "PushButton",
+            "buttonType": "buttonCTA",
+            "name": "CombineAddFilesExecute",
+            "vAlign": "center",
+            "fontSize": "14",
+            "bold": "true"
+          },
+          {
+            "type": "Custom",
+            "buttonType": "buttonCTA",
+            "name": "MultiFileViewPerformCombine",
+            "label": "Combine"
+          },
+          {
+            "type": "PushButton",
+            "buttonType": "buttonCTA",
+            "name": "CombineAddFilesExecute",
+            "vAlign": "center",
+            "fontSize": "14",
+            "bold": "true"
+          },
+          {
+            "type": "Custom",
+            "buttonType": "buttonCTA",
+            "name": "MultiFileViewPerformCombine"
+          },
+          {
+            "type": "Custom",
+            "buttonType": "buttonCTA",
+            "name": "MultiFileViewPerformCombine",
+            "label": "Combine with Acrobat Pro"
+          },
+          {
+            "type": "Custom",
+            "buttonType": "buttonCTA",
+            "name": "MultiFileViewPerformCombine",
+            "label": "Upgrade to Combine"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/Applications/Adobe Acrobat DC/Adobe Acrobat.app/Contents/Resources/Acrobat.sdef",
+      "sha256": "08fc90f39727e177f48471f63337e6e6061684b04deea9db712dc54efd232103",
+      "parser": "Python xml.etree.ElementTree",
+      "observed": {
+        "insert_pages_command": "<command name=\"insert pages\" code=\"CAROinpg\" description=\"Insert page(s) from another document.\">\n\t\t\t<direct-parameter description=\"The document to receive the inserted page(s).\" type=\"specifier\" optional=\"yes\" />\n\t\t\t<parameter name=\"after\" code=\"inaf\" description=\"The page after which page(s) will be inserted.\" type=\"integer\">\n\t\t\t\t<cocoa key=\"Acrobat_InsertPageLocation\" />\n\t\t\t</parameter>\n\t\t\t<parameter name=\"from\" code=\"srdc\" description=\"The source document, where the inserted page(s) are from.\" type=\"specifier\">\n\t\t\t\t<cocoa key=\"Acrobat_InsertPageSourceDocument\" />\n\t\t\t</parameter>\n\t\t\t<parameter name=\"starting with\" code=\"stpg\" description=\"The first page to insert.\" type=\"integer\">\n\t\t\t\t<cocoa key=\"Acrobat_InsertPageFirstPageToInsert\" />\n\t\t\t</parameter>\n\t\t\t<parameter name=\"number of pages\" code=\"nmpg\" description=\"The number of pages, including the first page, to insert.\" type=\"integer\">\n\t\t\t\t<cocoa key=\"Acrobat_InsertPagesNumberPagesToInsert\" />\n\t\t\t</parameter>\n\t\t\t<parameter name=\"insert bookmarks\" code=\"inbm\" description=\"Whether to copy bookmarks referencing the inserted pages over, or not (default is yes).\" type=\"boolean\" optional=\"yes\">\n\t\t\t\t<cocoa key=\"Acrobat_ShouldInsertBookmarks\" />\n\t\t\t</parameter>\n\t\t</command>\n\t\t"
+      }
+    },
+    {
+      "name": "22CMacWordToPDFConverter",
+      "name_address": "0x417b0bf",
+      "rtti_address": "0x4a47578",
+      "vtable_address": "0x4a47538",
+      "six_function_slots": [
+        "0x1b5a4d8",
+        "0x1b5a51c",
+        "0x1b5a564",
+        "0x1b5a658",
+        "0x1b5a6a0",
+        "0x1b5524c"
+      ],
+      "classification": "Derived class/vtable association from Itanium C++ ABI layout and DYLD_CHAINED_PTR_64_OFFSET unbound targets. Not original method names or runtime observations."
+    },
+    {
+      "name": "23CMacExcelToPDFConverter",
+      "name_address": "0x417b10c",
+      "rtti_address": "0x4a47628",
+      "vtable_address": "0x4a475f8",
+      "six_function_slots": [
+        "0x1b5a8f4",
+        "0x1b5a938",
+        "0x1b5a980",
+        "0x1b5aa90",
+        "0x1b5aad8",
+        "0x1b56d44"
+      ],
+      "classification": "Derived class/vtable association from Itanium C++ ABI layout and DYLD_CHAINED_PTR_64_OFFSET unbound targets. Not original method names or runtime observations."
+    },
+    {
+      "name": "22CMacPPntToPDFConverter",
+      "name_address": "0x417b0f3",
+      "rtti_address": "0x4a475d0",
+      "vtable_address": "0x4a475a0",
+      "six_function_slots": [
+        "0x1b5a708",
+        "0x1b5a74c",
+        "0x1b5a794",
+        "0x1b5a658",
+        "0x1b5a6a0",
+        "0x1b56648"
+      ],
+      "classification": "Derived class/vtable association from Itanium C++ ABI layout and DYLD_CHAINED_PTR_64_OFFSET unbound targets. Not original method names or runtime observations."
+    },
+    {
+      "cstring": "bServiceConversionIsEnabledForOfficeOnMac",
+      "arm64_unslid_address": "0x43775b5",
+      "original_file_offset": "0x92df5b5"
+    },
+    {
+      "cstring": "linkCreation.dotm",
+      "arm64_unslid_address": "0x44a7cad",
+      "original_file_offset": "0x940fcad"
+    },
+    {
+      "cstring": "/tmp/AcrOutputFilePath.txt",
+      "arm64_unslid_address": "0x44a7cbf",
+      "original_file_offset": "0x940fcbf"
+    },
+    {
+      "cstring": "AcrobatLinkCreation.link.startPrintFromAcrobat",
+      "arm64_unslid_address": "0x44a7cda",
+      "original_file_offset": "0x940fcda"
+    },
+    {
+      "cstring": "OfficeAppleEventAccess",
+      "arm64_unslid_address": "0x43a3618",
+      "original_file_offset": "0x930b618"
+    }
+  ]
+}

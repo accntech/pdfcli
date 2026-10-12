@@ -1,0 +1,588 @@
+[
+  {
+    "app": "Word",
+    "path": "/Applications/Microsoft Word.app/Contents/Resources/Word.sdef",
+    "sha256": "7cb51b924cab566320cc3019e92c1516302ae11220a81ae6279f1930c26320e7",
+    "terms": [
+      {
+        "kind": "command",
+        "name": "open",
+        "code": "aevtodoc",
+        "parameters": [
+          {
+            "name": "file name",
+            "code": "5015",
+            "type": "text",
+            "optional": "yes",
+            "description": "name of the file to open"
+          },
+          {
+            "name": "confirm conversions",
+            "code": "5462",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to display the convert file dialog box if the file is not in Microsoft Word format"
+          },
+          {
+            "name": "read only",
+            "code": "5830",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to open the file as read only"
+          },
+          {
+            "name": "add to recent files",
+            "code": "5241",
+            "type": "boolean",
+            "optional": "yes"
+          },
+          {
+            "name": "repair",
+            "code": "5853",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to open the file in repair mode"
+          },
+          {
+            "name": "showing repairs",
+            "code": "5857",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to false to suppress showing repairs when opening in repair mode"
+          },
+          {
+            "name": "password document",
+            "code": "5547",
+            "type": "text",
+            "optional": "yes",
+            "description": "The password for opening the document"
+          },
+          {
+            "name": "password template",
+            "code": "5548",
+            "type": "text",
+            "optional": "yes",
+            "description": "The password for opening the template"
+          },
+          {
+            "name": "revert",
+            "code": "5835",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Controls what happens if the file is an open document.  Set to true to discard any unsaved changes.  False will activate the document"
+          },
+          {
+            "name": "write password",
+            "code": "5549",
+            "type": "text",
+            "optional": "yes",
+            "description": "The password for saving changes to the document"
+          },
+          {
+            "name": "write password template",
+            "code": "5850",
+            "type": "text",
+            "optional": "yes",
+            "description": "The password for saving changes to the template"
+          },
+          {
+            "name": "file converter",
+            "code": "wFct",
+            "type": "WdOpenFormat",
+            "optional": "yes",
+            "description": "The format for the file converter to use when opening this file. You can specify one of the enumerated constants or use the open format property (an integer) of the file converter object you want to use"
+          }
+        ]
+      },
+      {
+        "kind": "enumerator",
+        "name": "save as PDF file",
+        "code": "0x03f30004"
+      },
+      {
+        "kind": "enumerator",
+        "name": "msoAutomationSecurityLow",
+        "code": "0x00a30001"
+      },
+      {
+        "kind": "enumerator",
+        "name": "msoAutomationSecurityByUI",
+        "code": "0x00a30002"
+      },
+      {
+        "kind": "enumerator",
+        "name": "msoAutomationSecurityForceDisable",
+        "code": "0x00a30003"
+      },
+      {
+        "kind": "command",
+        "name": "save as",
+        "code": "sWRD1420",
+        "parameters": [
+          {
+            "name": "file name",
+            "code": "5015",
+            "type": "text",
+            "optional": "yes",
+            "description": "The name for the document. The default is the current folder and file name. If a document with the specified file name already exists, the document is overwritten without the user being prompted first."
+          },
+          {
+            "name": "file format",
+            "code": "5238",
+            "type": "WdSaveFormat",
+            "optional": "yes",
+            "description": "The format in which the document is saved."
+          },
+          {
+            "name": "lock comments",
+            "code": "5239",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to lock the document for comments. The default is false."
+          },
+          {
+            "name": "password",
+            "code": "5797",
+            "type": "text",
+            "optional": "yes",
+            "description": "A password string for opening the document."
+          },
+          {
+            "name": "add to recent files",
+            "code": "5241",
+            "type": "boolean",
+            "optional": "yes",
+            "description": " True to add the document to the list of recently used files on the File menu. The default is true."
+          },
+          {
+            "name": "write password",
+            "code": "5549",
+            "type": "text",
+            "optional": "yes",
+            "description": "A password string for saving changes to the document."
+          },
+          {
+            "name": "read only recommended",
+            "code": "5243",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "True to have Microsoft Word suggest read-only status whenever the document is opened. The default is false."
+          },
+          {
+            "name": "embed truetype fonts",
+            "code": "5244",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to save TrueType fonts with the document."
+          },
+          {
+            "name": "save native picture format",
+            "code": "5245",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "If graphics were imported from another platform for example, Macintosh, true to save only the Windows version of the imported graphics."
+          },
+          {
+            "name": "save forms data",
+            "code": "5246",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "True to save the data entered by a user in a form as a data record."
+          },
+          {
+            "name": "text encoding",
+            "code": "5288",
+            "type": "unsigned integer",
+            "optional": "yes",
+            "description": "Text encoding to use when saving out as text file"
+          },
+          {
+            "name": "insert line breaks",
+            "code": "5289",
+            "type": "boolean",
+            "optional": "yes"
+          },
+          {
+            "name": "allow substitutions",
+            "code": "5290",
+            "type": "boolean",
+            "optional": "yes"
+          },
+          {
+            "name": "line ending type",
+            "code": "5291",
+            "type": "WdLineEndingType",
+            "optional": "yes"
+          },
+          {
+            "name": "Add BiDi Marks",
+            "code": "5248",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "True to save with BiDi Marks."
+          }
+        ]
+      },
+      {
+        "kind": "enumerator",
+        "name": "format PDF",
+        "code": "0x02310011"
+      }
+    ]
+  },
+  {
+    "app": "Excel",
+    "path": "/Applications/Microsoft Excel.app/Contents/Resources/Excel.sdef",
+    "sha256": "65791dab8b9f94a66e22dbd582ed49acc70f1d9f8e9efe3bcfee7434fe76c0f9",
+    "terms": [
+      {
+        "kind": "enumerator",
+        "name": "save as PDF file",
+        "code": "0x03f30004"
+      },
+      {
+        "kind": "enumerator",
+        "name": "msoAutomationSecurityLow",
+        "code": "0x00a30001"
+      },
+      {
+        "kind": "enumerator",
+        "name": "msoAutomationSecurityByUI",
+        "code": "0x00a30002"
+      },
+      {
+        "kind": "enumerator",
+        "name": "msoAutomationSecurityForceDisable",
+        "code": "0x00a30003"
+      },
+      {
+        "kind": "command",
+        "name": "open workbook",
+        "code": "smXL1169",
+        "parameters": [
+          {
+            "name": "workbook file name",
+            "code": "WbFN",
+            "type": "text",
+            "description": "The name of the file containing the workbook to be opened."
+          },
+          {
+            "name": "update links",
+            "code": "XOul",
+            "type": "MyUDateLinks",
+            "optional": "yes",
+            "description": "Specifies the way links in the file are updated. If this argument is omitted, the user is prompted to specify how links will be updated."
+          },
+          {
+            "name": "read only",
+            "code": "5291",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to open the workbook in read-only mode."
+          },
+          {
+            "name": "format",
+            "code": "5140",
+            "type": "MyODelimiter",
+            "optional": "yes",
+            "description": "If Microsoft Excel is opening a text file, this argument specifies the delimiter character.  If this argument is omitted, the current delimiter is used."
+          },
+          {
+            "name": "password",
+            "code": "5236",
+            "type": "text",
+            "optional": "yes",
+            "description": "A string that contains the password required to open a protected workbook. If this argument is omitted and the workbook requires a password, the user is prompted for the password."
+          },
+          {
+            "name": "write reserved password",
+            "code": "XoRP",
+            "type": "text",
+            "optional": "yes",
+            "description": "A string that contains the password required to write to a write-reserved workbook. If this argument is omitted and the workbook requires a password, the user will be prompted for the password."
+          },
+          {
+            "name": "ignore read only recommended",
+            "code": "XoiR",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to have Microsoft Excel not display the read-only recommended message if the workbook was saved with the read-only recommended option."
+          },
+          {
+            "name": "origin",
+            "code": "XoDw",
+            "type": "XlPlatform",
+            "optional": "yes",
+            "description": "If the file is a text file, this argument indicates where it originated so that code pages and Carriage return/line feed, CR/LF can be mapped correctly."
+          },
+          {
+            "name": "delimiter",
+            "code": "XoDL",
+            "type": "text",
+            "optional": "yes",
+            "description": "If the file is a text file and the format argument is custom character delimiter, this argument is a string that specifies the character to be used as the delimiter."
+          },
+          {
+            "name": "editable",
+            "code": "XoEd",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "If the file is a Microsoft Excel 4.0 add-in, this argument is true to open the add-in so that it's a visible window. If the file isn't an add-in, true prevents the running of any Auto_Open macros."
+          },
+          {
+            "name": "notify",
+            "code": "5288",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "If the file cannot be opened in read/write mode, this argument is true to add the file to the file notification list. Excel will open the file as read-only, poll the file notification list, and then notify the user when the file becomes available."
+          },
+          {
+            "name": "converter",
+            "code": "XoCV",
+            "type": "integer",
+            "optional": "yes",
+            "description": "The index of the first file converter to try when opening the file. The specified file converter is tried first, if this converter doesn't recognize the file, all other converters are tried."
+          },
+          {
+            "name": "add to mru",
+            "code": "5245",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to add this workbook to the list of recently used files. The default value is false."
+          }
+        ]
+      },
+      {
+        "kind": "command",
+        "name": "save as",
+        "code": "smXL1659",
+        "parameters": [
+          {
+            "name": "filename",
+            "code": "5016",
+            "type": "text",
+            "description": "A string that indicates the name of the file to be saved. You can include a full path. If you don't, Microsoft Excel saves the file in the current folder."
+          },
+          {
+            "name": "file format",
+            "code": "1813",
+            "type": "XlFileFormat",
+            "optional": "yes",
+            "description": "Specifies the file format to use when you save the file."
+          },
+          {
+            "name": "password",
+            "code": "5236",
+            "type": "text",
+            "optional": "yes",
+            "description": "A case-sensitive string, no more than 15 characters, that indicates the protection password to be given to the file."
+          },
+          {
+            "name": "write reservation password",
+            "code": "5242",
+            "type": "text",
+            "optional": "yes",
+            "description": "A string that indicates the write-reservation password for this file. If a file is saved with the password and the password isn't supplied when the file is opened, the file is opened as read-only."
+          },
+          {
+            "name": "read only recommended",
+            "code": "5243",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to display a message when the file is opened, recommending that the file be opened as read-only."
+          },
+          {
+            "name": "create backup",
+            "code": "5244",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to create a backup file."
+          },
+          {
+            "name": "add to most recently used list",
+            "code": "5245",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to add this workbook to the list of recently used files. The default value is false."
+          },
+          {
+            "name": "save as local language",
+            "code": "locl",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "True saves files against the language of Microsoft Excel. False is the default, which saves files against the language of Visual Basic for Applications"
+          }
+        ]
+      },
+      {
+        "kind": "command",
+        "name": "save workbook as",
+        "code": "smXLxSwA",
+        "parameters": [
+          {
+            "name": "filename",
+            "code": "5016",
+            "type": "text",
+            "optional": "yes",
+            "description": "A string that indicates the name of the file to be saved. You can include a full path. If you don't, Microsoft Excel saves the file in the current folder."
+          },
+          {
+            "name": "file format",
+            "code": "1813",
+            "type": "XlFileFormat",
+            "optional": "yes",
+            "description": "Specifies the file format to use when you save the file."
+          },
+          {
+            "name": "password",
+            "code": "5236",
+            "type": "text",
+            "optional": "yes",
+            "description": "A case-sensitive string, no more than 15 characters, that indicates the protection password to be given to the file."
+          },
+          {
+            "name": "write reservation password",
+            "code": "5242",
+            "type": "text",
+            "optional": "yes",
+            "description": "A string that indicates the write-reservation password for this file. If a file is saved with the password and the password isn't supplied when the file is opened, the file is opened as read-only."
+          },
+          {
+            "name": "read only recommended",
+            "code": "5243",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to display a message when the file is opened, recommending that the file be opened as read-only."
+          },
+          {
+            "name": "create backup",
+            "code": "5244",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to create a backup file."
+          },
+          {
+            "name": "access mode",
+            "code": "5296",
+            "type": "XlSaveAsAccessMode",
+            "optional": "yes",
+            "description": "Specifies the access mode for the new file."
+          },
+          {
+            "name": "conflict resolution",
+            "code": "1805",
+            "type": "XlSaveConflictResolution",
+            "optional": "yes",
+            "description": "Specifies who conflict resolutions will be handled."
+          },
+          {
+            "name": "add to most recently used list",
+            "code": "5245",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to add this workbook to the list of recently used files. The default value is false."
+          }
+        ]
+      },
+      {
+        "kind": "enumerator",
+        "name": "PDF file format",
+        "code": "0x02bc0039"
+      },
+      {
+        "kind": "command",
+        "name": "save as",
+        "code": "sCRT1659",
+        "parameters": [
+          {
+            "name": "filename",
+            "code": "5016",
+            "type": "text",
+            "description": "A string that indicates the name of the file to be saved. You can include a full path, if you don't, Microsoft Excel saves the file in the current folder."
+          },
+          {
+            "name": "file format",
+            "code": "1813",
+            "type": "XlFileFormat",
+            "optional": "yes",
+            "description": "Specifies the file format to use when you save the file."
+          },
+          {
+            "name": "password",
+            "code": "5236",
+            "type": "text",
+            "optional": "yes",
+            "description": "A case-sensitive string, no more than 15 characters, that indicates the protection password to be given to the file."
+          },
+          {
+            "name": "write reservation password",
+            "code": "5242",
+            "type": "text",
+            "optional": "yes",
+            "description": "A string that indicates the write-reservation password for this file. If a file is saved with the password and the password isn't supplied when the file is opened, the file is opened as read-only."
+          },
+          {
+            "name": "read only recommended",
+            "code": "5243",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to display a message when the file is opened, recommending that the file be opened as read-only."
+          },
+          {
+            "name": "create backup",
+            "code": "5244",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to create a backup file."
+          },
+          {
+            "name": "add to most recently used list",
+            "code": "5245",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "Set to true to add this workbook to the list of recently used files. The default value is false."
+          },
+          {
+            "name": "save as local language",
+            "code": "locl",
+            "type": "boolean",
+            "optional": "yes",
+            "description": "True saves files against the language of Microsoft Excel. False is the default, which saves files against the language of Visual Basic for Applications"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "app": "PowerPoint",
+    "path": "/Applications/Microsoft PowerPoint.app/Contents/Resources/PowerPoint.sdef",
+    "sha256": "db0fa15f433e44667f075c2b7249a1687b8d0642961dd800ce65a4d78c60ee7b",
+    "terms": [
+      {
+        "kind": "enumerator",
+        "name": "save as PDF file",
+        "code": "0x03f30004"
+      },
+      {
+        "kind": "enumerator",
+        "name": "msoAutomationSecurityLow",
+        "code": "0x00a30001"
+      },
+      {
+        "kind": "enumerator",
+        "name": "msoAutomationSecurityByUI",
+        "code": "0x00a30002"
+      },
+      {
+        "kind": "enumerator",
+        "name": "msoAutomationSecurityForceDisable",
+        "code": "0x00a30003"
+      },
+      {
+        "kind": "enumerator",
+        "name": "save as PDF",
+        "code": "0x00cc000e"
+      }
+    ]
+  }
+]

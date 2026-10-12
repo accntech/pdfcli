@@ -1,0 +1,312 @@
+{
+  "evidence_kind": "controlled-runtime-observation (not an REA Evidence record)",
+  "application": "/Applications/Adobe Acrobat DC/Adobe Acrobat.app",
+  "version": "26.002.22008",
+  "entry_point": "AppleScript CARO/inpg insert pages; not the Combine button",
+  "scope": "Synthetic fixtures only; inserted two pages after page one, bookmarks true/false; no debugger or network trace",
+  "results": {
+    "rea-base.pdf": {
+      "sha256": "752345761f8bd6c4ef4c224300d043bf4e718f5e2207cebcb722c588b5b09de3",
+      "pages": [
+        {
+          "text": "BASE PAGE",
+          "media_box": [
+            0,
+            0,
+            400,
+            500
+          ],
+          "crop_box": [
+            10,
+            20,
+            390,
+            480
+          ],
+          "rotation": 0,
+          "annotations": [
+            {
+              "subtype": "/Link",
+              "destination": "shared-destination",
+              "action": "None"
+            }
+          ]
+        }
+      ],
+      "bookmarks": [
+        {
+          "title": "rea-base.pdf bookmark",
+          "destination": {
+            "page": 1,
+            "view": [
+              "/Fit"
+            ]
+          }
+        }
+      ],
+      "named_destinations": {
+        "shared-destination": 1
+      },
+      "metadata": {
+        "/Producer": "pypdf"
+      }
+    },
+    "rea-source.pdf": {
+      "sha256": "3a9e1a7b0c77ce307cca142c3efe43fb385dab4eeb19faf95a28dc5ac285b130",
+      "pages": [
+        {
+          "text": "SOURCE FIRST",
+          "media_box": [
+            0,
+            0,
+            600,
+            300
+          ],
+          "crop_box": [
+            10,
+            20,
+            590,
+            280
+          ],
+          "rotation": 90,
+          "annotations": [
+            {
+              "subtype": "/Link",
+              "destination": "shared-destination",
+              "action": "None"
+            }
+          ]
+        },
+        {
+          "text": "SOURCE SECOND",
+          "media_box": [
+            0,
+            0,
+            600,
+            300
+          ],
+          "crop_box": [
+            10,
+            20,
+            590,
+            280
+          ],
+          "rotation": 90,
+          "annotations": []
+        }
+      ],
+      "bookmarks": [
+        {
+          "title": "rea-source.pdf bookmark",
+          "destination": {
+            "page": 2,
+            "view": [
+              "/Fit"
+            ]
+          }
+        }
+      ],
+      "named_destinations": {
+        "shared-destination": 2
+      },
+      "metadata": {
+        "/Producer": "pypdf"
+      }
+    },
+    "rea-with-bookmarks.pdf": {
+      "sha256": "4226a62764a8cd428cc2f8e27e1ece1444a2879b4327a469cdcd779097fd3b3e",
+      "pages": [
+        {
+          "text": "BASE PAGE",
+          "media_box": [
+            0,
+            0,
+            400,
+            500
+          ],
+          "crop_box": [
+            10,
+            20,
+            390,
+            480
+          ],
+          "rotation": 0,
+          "annotations": [
+            {
+              "subtype": "/Link",
+              "destination": "shared-destination",
+              "action": "None"
+            }
+          ]
+        },
+        {
+          "text": "SOURCE FIRST",
+          "media_box": [
+            0.0,
+            0.0,
+            600.0,
+            300.0
+          ],
+          "crop_box": [
+            10.0,
+            20.0,
+            590.0,
+            280.0
+          ],
+          "rotation": 90,
+          "annotations": [
+            {
+              "subtype": "/Link",
+              "destination": "shared-destination",
+              "action": "None"
+            }
+          ]
+        },
+        {
+          "text": "SOURCE SECOND",
+          "media_box": [
+            0.0,
+            0.0,
+            600.0,
+            300.0
+          ],
+          "crop_box": [
+            10.0,
+            20.0,
+            590.0,
+            280.0
+          ],
+          "rotation": 90,
+          "annotations": []
+        }
+      ],
+      "bookmarks": [
+        {
+          "title": "rea-base.pdf bookmark",
+          "destination": {
+            "page": 1,
+            "view": [
+              "/Fit"
+            ]
+          }
+        },
+        {
+          "title": "rea-source.pdf",
+          "destination": {
+            "page": null,
+            "view": [
+              "0.0",
+              "0.0",
+              "1"
+            ]
+          },
+          "children": [
+            {
+              "title": "rea-source.pdf bookmark",
+              "destination": {
+                "page": 3,
+                "view": [
+                  "/Fit"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "named_destinations": {
+        "shared-destination": 1
+      },
+      "metadata": {
+        "/CreationDate": "D:20261013000757+08'00'",
+        "/ModDate": "D:20261013000757+08'00'",
+        "/Producer": "pypdf"
+      }
+    },
+    "rea-without-bookmarks.pdf": {
+      "sha256": "99ac8e2c67eb9060438fd6a83f77a1e06d3f1e583b524f880a15010f8538720f",
+      "pages": [
+        {
+          "text": "BASE PAGE",
+          "media_box": [
+            0,
+            0,
+            400,
+            500
+          ],
+          "crop_box": [
+            10,
+            20,
+            390,
+            480
+          ],
+          "rotation": 0,
+          "annotations": [
+            {
+              "subtype": "/Link",
+              "destination": "shared-destination",
+              "action": "None"
+            }
+          ]
+        },
+        {
+          "text": "SOURCE FIRST",
+          "media_box": [
+            0.0,
+            0.0,
+            600.0,
+            300.0
+          ],
+          "crop_box": [
+            10.0,
+            20.0,
+            590.0,
+            280.0
+          ],
+          "rotation": 90,
+          "annotations": [
+            {
+              "subtype": "/Link",
+              "destination": "shared-destination",
+              "action": "None"
+            }
+          ]
+        },
+        {
+          "text": "SOURCE SECOND",
+          "media_box": [
+            0.0,
+            0.0,
+            600.0,
+            300.0
+          ],
+          "crop_box": [
+            10.0,
+            20.0,
+            590.0,
+            280.0
+          ],
+          "rotation": 90,
+          "annotations": []
+        }
+      ],
+      "bookmarks": [
+        {
+          "title": "rea-base.pdf bookmark",
+          "destination": {
+            "page": 1,
+            "view": [
+              "/Fit"
+            ]
+          }
+        }
+      ],
+      "named_destinations": {
+        "shared-destination": 1
+      },
+      "metadata": {
+        "/CreationDate": "D:20261013000816+08'00'",
+        "/ModDate": "D:20261013000816+08'00'",
+        "/Producer": "pypdf"
+      }
+    }
+  }
+}

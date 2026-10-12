@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-13",
+  "platform": "macOS arm64",
+  "excel_version": "16.113.4",
+  "scope": "Synthetic default Excel table detection and native export verification. No user document content included.",
+  "default": "Native Excel inspection and per-table width fitting, with vertical continuation and no required Excel arguments.",
+  "before": {
+    "default_native_regression_failed": true,
+    "failure": "Long tables must flow vertically; stale saved print areas omitted rows."
+  },
+  "detection": {
+    "inputs": [
+      "occupied cell coordinates",
+      "merged ranges",
+      "visible graphic bounds",
+      "native Excel table ranges"
+    ],
+    "separation": [
+      "persistent empty column gutters with at least two occupied columns per side",
+      "independent staggered merged headings",
+      "distinct structured Excel tables"
+    ],
+    "protected_spans": [
+      "merged cells",
+      "shared headings",
+      "same-row grouped headings",
+      "visible images and charts",
+      "structured table columns"
+    ],
+    "ambiguous_layout": "keep complete width together",
+    "inspection_limit_cells_per_sheet": 200000,
+    "large_sheet_fallback": "complete-content width fitting; no partial scan",
+    "vertical_page_limit": 32767
+  },
+  "checks": {
+    "gutter_tables": "pass",
+    "adjacent_staggered_headings": "pass",
+    "native_structured_tables": "pass",
+    "spanning_image_retained": "pass",
+    "shared_heading_prevents_split": "pass",
+    "heading_wider_than_body_included": "pass",
+    "all_rows_exactly_once": "pass",
+    "label_and_amount_columns_same_page": "pass",
+    "vertical_continuation": "pass",
+    "original_fixture_bytes_unchanged": "pass",
+    "saved_layout_opt_out": "pass",
+    "manual_override_without_fit_flag": "pass",
+    "legacy_doc_xls_ppt": "pass",
+    "mixed_paper_and_blank_page_regressions": "pass",
+    "office_staging_empty": "pass",
+    "cargo_fmt_check": "pass",
+    "cargo_clippy_D_warnings": "pass",
+    "release_build": "pass"
+  },
+  "tests": {
+    "total_distinct_passed": 39,
+    "unit_tests": 9,
+    "integration_tests": 30,
+    "failed": 0,
+    "runs": [
+      {
+        "command": "cargo test --locked -- --include-ignored --test-threads=1",
+        "passed": 38,
+        "integration_seconds": 37.32,
+        "log": "docs/evidence/runtime/excel-auto-tables-tests.log"
+      },
+      {
+        "command": "cargo test real_office_excel_detects_native_tables_and_protects_spanning_images -- --ignored --nocapture --test-threads=1",
+        "passed": 1,
+        "integration_seconds": 4.12
+      }
+    ]
+  },
+  "compatibility": {
+    "excel_preserve_layout": "opt out of automatic fitting; keep saved print areas, scale and breaks",
+    "excel_fit_width": "accepted alias for default behavior",
+    "excel_print_area": "optional per-sheet override; fit flag no longer required"
+  },
+  "sha256": {
+    "src/main.rs": "c9fc0de14b147d87d7ebaae4e2c19bdb5b02ffac11aef7281d713e4fc8f34454",
+    "src/office.rs": "9674428b91f135a4636c4fd39cf145818613dd53dc22510e1f7011b6fc0c1bfa",
+    "src/office/macos.rs": "bfad9663db4eab0f5d5717dfa9a42c9a0999ba66ad717adebf1733a0f2cbfa8c",
+    "src/office/excel_layout.rs": "00668ee3a553050ac948e58e4f788b97a8ad4bd607ec659f8e8e96a71c07d11f",
+    "src/office/excel-layout.applescript": "c089d394430bf742555dfa6cdbcd10b9cbb7d664bbf3f015654b64fcae72d5f8",
+    "src/office/excel.applescript": "51b53f0b83720c4a3ac82c98db80bc874a1e07983f695ba4f16bed9b8fa9b9c6",
+    "tests/merge.rs": "45a1917d84d559f9a48909c59dd318697f6b4235548e5ce458e6d2ecfff7e6d0",
+    "tests/fixtures/generate-auto-tables.py": "c39d7e0a729c5348d40caa65127addb67a6ff61fc5bcd719a3cc62de68c2d1f7",
+    "tests/fixtures/excel-auto-tables.xlsx": "47e75e1c658c5a569a3953e0cd12967242db10fccaa83d746024ac1a40310748",
+    "tests/fixtures/excel-auto-objects.xlsx": "207af920e61f6b4cfb647ccf32c9e7eaf5f0b61b3067696db27d344f92cf4e6b"
+  }
+}

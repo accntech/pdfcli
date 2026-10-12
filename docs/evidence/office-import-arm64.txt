@@ -1,0 +1,582 @@
+(lldb) target create --arch arm64 "/Applications/Adobe Acrobat DC/Adobe Acrobat.app/Contents/Frameworks/Acrobat.framework/Versions/A/Acrobat"
+Current executable set to '/Applications/Adobe Acrobat DC/Adobe Acrobat.app/Contents/Frameworks/Acrobat.framework/Versions/A/Acrobat' (arm64).
+(lldb) disassemble --start-address 0x1b58c68 --end-address 0x1b5956c
+Acrobat`___lldb_unnamed_symbol_1b58c68:
+Acrobat[0x1b58c68] <+0>:    sub    sp, sp, #0x130
+Acrobat[0x1b58c6c] <+4>:    stp    d11, d10, [sp, #0xb0]
+Acrobat[0x1b58c70] <+8>:    stp    d9, d8, [sp, #0xc0]
+Acrobat[0x1b58c74] <+12>:   stp    x28, x27, [sp, #0xd0]
+Acrobat[0x1b58c78] <+16>:   stp    x26, x25, [sp, #0xe0]
+Acrobat[0x1b58c7c] <+20>:   stp    x24, x23, [sp, #0xf0]
+Acrobat[0x1b58c80] <+24>:   stp    x22, x21, [sp, #0x100]
+Acrobat[0x1b58c84] <+28>:   stp    x20, x19, [sp, #0x110]
+Acrobat[0x1b58c88] <+32>:   stp    x29, x30, [sp, #0x120]
+Acrobat[0x1b58c8c] <+36>:   add    x29, sp, #0x120
+Acrobat[0x1b58c90] <+40>:   adrp   x8, 11234
+Acrobat[0x1b58c94] <+44>:   ldr    x8, [x8, #0x880]
+Acrobat[0x1b58c98] <+48>:   ldr    x8, [x8]
+Acrobat[0x1b58c9c] <+52>:   stur   x8, [x29, #-0x78]
+Acrobat[0x1b58ca0] <+56>:   sturh  wzr, [x29, #-0x7a]
+Acrobat[0x1b58ca4] <+60>:   cbz    x2, 0x1b58d10             ; <+168>
+Acrobat[0x1b58ca8] <+64>:   mov    x19, x4
+Acrobat[0x1b58cac] <+68>:   mov    x20, x0
+Acrobat[0x1b58cb0] <+72>:   add    x0, sp, #0x88
+Acrobat[0x1b58cb4] <+76>:   mov    x1, x2
+Acrobat[0x1b58cb8] <+80>:   mov    x2, x3
+Acrobat[0x1b58cbc] <+84>:   mov    w3, #0x0                  ; =0 
+Acrobat[0x1b58cc0] <+88>:   mov    w4, #0x0                  ; =0 
+Acrobat[0x1b58cc4] <+92>:   bl     0x81594                   ; ___lldb_unnamed_symbol_81594
+Acrobat[0x1b58cc8] <+96>:   cbz    x20, 0x1b58d18            ; <+176>
+Acrobat[0x1b58ccc] <+100>:  adrp   x1, 10293
+Acrobat[0x1b58cd0] <+104>:  add    x1, x1, #0x7fc            ; "UseAssemblyView"
+Acrobat[0x1b58cd4] <+108>:  mov    x0, x20
+Acrobat[0x1b58cd8] <+112>:  mov    w2, #0x0                  ; =0 
+Acrobat[0x1b58cdc] <+116>:  bl     0x38e00                   ; ___lldb_unnamed_symbol_38e00
+Acrobat[0x1b58ce0] <+120>:  mov    x21, x0
+Acrobat[0x1b58ce4] <+124>:  adrp   x1, 10513
+Acrobat[0x1b58ce8] <+128>:  add    x1, x1, #0xadc            ; "AlwaysAddBookmarks"
+Acrobat[0x1b58cec] <+132>:  mov    x0, x20
+Acrobat[0x1b58cf0] <+136>:  mov    w2, #0x0                  ; =0 
+Acrobat[0x1b58cf4] <+140>:  bl     0x38f50                   ; ___lldb_unnamed_symbol_38f50
+Acrobat[0x1b58cf8] <+144>:  cmp    w21, #0x0
+Acrobat[0x1b58cfc] <+148>:  cset   w24, ne
+Acrobat[0x1b58d00] <+152>:  cmp    w0, #0x0
+Acrobat[0x1b58d04] <+156>:  mov    w8, #0x2                  ; =2 
+Acrobat[0x1b58d08] <+160>:  cinc   w25, w8, ne
+Acrobat[0x1b58d0c] <+164>:  b      0x1b58d20                 ; <+184>
+Acrobat[0x1b58d10] <+168>:  mov    w19, #0x0                 ; =0 
+Acrobat[0x1b58d14] <+172>:  b      0x1b592ac                 ; <+1604>
+Acrobat[0x1b58d18] <+176>:  mov    w24, #0x0                 ; =0 
+Acrobat[0x1b58d1c] <+180>:  mov    w25, #0x3                 ; =3 
+Acrobat[0x1b58d20] <+184>:  adrp   x1, 10527
+Acrobat[0x1b58d24] <+188>:  add    x1, x1, #0x2b7            ; "ConversionTitle"
+Acrobat[0x1b58d28] <+192>:  mov    x0, x20
+Acrobat[0x1b58d2c] <+196>:  bl     0x1f2a0                   ; ___lldb_unnamed_symbol_1f2a0
+Acrobat[0x1b58d30] <+200>:  cbz    w0, 0x1b58dc8             ; <+352>
+Acrobat[0x1b58d34] <+204>:  adrp   x1, 10527
+Acrobat[0x1b58d38] <+208>:  add    x1, x1, #0x2c7            ; "ConversionMessage"
+Acrobat[0x1b58d3c] <+212>:  mov    x0, x20
+Acrobat[0x1b58d40] <+216>:  bl     0x1f2a0                   ; ___lldb_unnamed_symbol_1f2a0
+Acrobat[0x1b58d44] <+220>:  cbz    w0, 0x1b58dc8             ; <+352>
+Acrobat[0x1b58d48] <+224>:  adrp   x1, 10527
+Acrobat[0x1b58d4c] <+228>:  add    x1, x1, #0x2b7            ; "ConversionTitle"
+Acrobat[0x1b58d50] <+232>:  mov    x0, x20
+Acrobat[0x1b58d54] <+236>:  bl     0x1e838                   ; ___lldb_unnamed_symbol_1e838
+Acrobat[0x1b58d58] <+240>:  mov    x21, x0
+Acrobat[0x1b58d5c] <+244>:  adrp   x1, 10527
+Acrobat[0x1b58d60] <+248>:  add    x1, x1, #0x2c7            ; "ConversionMessage"
+Acrobat[0x1b58d64] <+252>:  mov    x0, x20
+Acrobat[0x1b58d68] <+256>:  bl     0x1e838                   ; ___lldb_unnamed_symbol_1e838
+Acrobat[0x1b58d6c] <+260>:  mov    x23, x0
+Acrobat[0x1b58d70] <+264>:  adrp   x8, 12816
+Acrobat[0x1b58d74] <+268>:  ldr    x0, [x8, #0x730]
+Acrobat[0x1b58d78] <+272>:  bl     0x3905a20                 ; symbol stub for: objc_alloc
+Acrobat[0x1b58d7c] <+276>:  mov    x22, x0
+Acrobat[0x1b58d80] <+280>:  adrp   x8, 11235
+Acrobat[0x1b58d84] <+284>:  ldr    x8, [x8, #0x8f0]
+Acrobat[0x1b58d88] <+288>:  ldp    d8, d9, [x8]
+Acrobat[0x1b58d8c] <+292>:  ldp    d10, d11, [x8, #0x10]
+Acrobat[0x1b58d90] <+296>:  mov    x0, x21
+Acrobat[0x1b58d94] <+300>:  bl     0x268b8                   ; ___lldb_unnamed_symbol_268b8
+Acrobat[0x1b58d98] <+304>:  mov    x21, x0
+Acrobat[0x1b58d9c] <+308>:  mov    x0, x23
+Acrobat[0x1b58da0] <+312>:  bl     0x268b8                   ; ___lldb_unnamed_symbol_268b8
+Acrobat[0x1b58da4] <+316>:  mov    x3, x0
+Acrobat[0x1b58da8] <+320>:  mov    x0, x22
+Acrobat[0x1b58dac] <+324>:  fmov   d0, d8
+Acrobat[0x1b58db0] <+328>:  fmov   d1, d9
+Acrobat[0x1b58db4] <+332>:  fmov   d2, d10
+Acrobat[0x1b58db8] <+336>:  fmov   d3, d11
+Acrobat[0x1b58dbc] <+340>:  mov    x2, x21
+Acrobat[0x1b58dc0] <+344>:  bl     0x390dd80
+Acrobat[0x1b58dc4] <+348>:  b      0x1b58de8                 ; <+384>
+Acrobat[0x1b58dc8] <+352>:  adrp   x8, 12816
+Acrobat[0x1b58dcc] <+356>:  ldr    x0, [x8, #0x730]
+Acrobat[0x1b58dd0] <+360>:  bl     0x3905a20                 ; symbol stub for: objc_alloc
+Acrobat[0x1b58dd4] <+364>:  adrp   x8, 11235
+Acrobat[0x1b58dd8] <+368>:  ldr    x8, [x8, #0x8f0]
+Acrobat[0x1b58ddc] <+372>:  ldp    d0, d1, [x8]
+Acrobat[0x1b58de0] <+376>:  ldp    d2, d3, [x8, #0x10]
+Acrobat[0x1b58de4] <+380>:  bl     0x390db00
+Acrobat[0x1b58de8] <+384>:  mov    x21, x0
+Acrobat[0x1b58dec] <+388>:  cbz    x0, 0x1b58e3c             ; <+468>
+Acrobat[0x1b58df0] <+392>:  mov    x0, x21
+Acrobat[0x1b58df4] <+396>:  bl     0x390c9a0
+Acrobat[0x1b58df8] <+400>:  mov    x22, x0
+Acrobat[0x1b58dfc] <+404>:  cbz    x0, 0x1b58e1c             ; <+436>
+Acrobat[0x1b58e00] <+408>:  mov    x0, x22
+Acrobat[0x1b58e04] <+412>:  bl     0x3909d40
+Acrobat[0x1b58e08] <+416>:  mov    x2, x21
+Acrobat[0x1b58e0c] <+420>:  bl     0x3908080
+Acrobat[0x1b58e10] <+424>:  mov    x0, x22
+Acrobat[0x1b58e14] <+428>:  mov    x2, x22
+Acrobat[0x1b58e18] <+432>:  bl     0x390f6a0
+Acrobat[0x1b58e1c] <+436>:  cbz    x20, 0x1b58e44            ; <+476>
+Acrobat[0x1b58e20] <+440>:  adrp   x1, 10477
+Acrobat[0x1b58e24] <+444>:  add    x1, x1, #0xa5b            ; "CreatePDFFromFilePath"
+Acrobat[0x1b58e28] <+448>:  mov    x0, x20
+Acrobat[0x1b58e2c] <+452>:  mov    w2, #0x0                  ; =0 
+Acrobat[0x1b58e30] <+456>:  bl     0x38e00                   ; ___lldb_unnamed_symbol_38e00
+Acrobat[0x1b58e34] <+460>:  mov    x2, x0
+Acrobat[0x1b58e38] <+464>:  b      0x1b58e48                 ; <+480>
+Acrobat[0x1b58e3c] <+468>:  mov    x22, #0x0                 ; =0 
+Acrobat[0x1b58e40] <+472>:  cbnz   x20, 0x1b58e20            ; <+440>
+Acrobat[0x1b58e44] <+476>:  mov    w2, #0x0                  ; =0 
+Acrobat[0x1b58e48] <+480>:  adrp   x8, 11239
+Acrobat[0x1b58e4c] <+484>:  add    x8, x8, #0x310
+Acrobat[0x1b58e50] <+488>:  add    x9, x8, #0x10
+Acrobat[0x1b58e54] <+492>:  ldp    x10, x8, [sp, #0x90]
+Acrobat[0x1b58e58] <+496>:  stp    x9, x10, [sp, #0x58]
+Acrobat[0x1b58e5c] <+500>:  str    x8, [sp, #0x68]
+Acrobat[0x1b58e60] <+504>:  cbz    x8, 0x1b58e6c             ; <+516>
+Acrobat[0x1b58e64] <+508>:  mov    w9, #0x1                  ; =1 
+Acrobat[0x1b58e68] <+512>:  ldaddal w9, w8, [x8]
+Acrobat[0x1b58e6c] <+516>:  adrp   x8, 11242
+Acrobat[0x1b58e70] <+520>:  add    x8, x8, #0x2a0
+Acrobat[0x1b58e74] <+524>:  add    x8, x8, #0x10
+Acrobat[0x1b58e78] <+528>:  str    x8, [sp, #0x58]
+Acrobat[0x1b58e7c] <+532>:  add    x8, sp, #0x70
+Acrobat[0x1b58e80] <+536>:  add    x0, sp, #0x58
+Acrobat[0x1b58e84] <+540>:  sub    x1, x29, #0x7a
+Acrobat[0x1b58e88] <+544>:  bl     0x1b5ecbc                 ; ___lldb_unnamed_symbol_1b5ecbc
+Acrobat[0x1b58e8c] <+548>:  add    x0, sp, #0x58
+Acrobat[0x1b58e90] <+552>:  bl     0x1f9da4                  ; ___lldb_unnamed_symbol_1f9da4
+Acrobat[0x1b58e94] <+556>:  cbz    x21, 0x1b58ec0            ; <+600>
+Acrobat[0x1b58e98] <+560>:  mov    x0, x21
+Acrobat[0x1b58e9c] <+564>:  bl     0x3909660
+Acrobat[0x1b58ea0] <+568>:  cbz    x22, 0x1b58eb8            ; <+592>
+Acrobat[0x1b58ea4] <+572>:  mov    x0, x22
+Acrobat[0x1b58ea8] <+576>:  mov    w2, #0x0                  ; =0 
+Acrobat[0x1b58eac] <+580>:  bl     0x3914160
+Acrobat[0x1b58eb0] <+584>:  mov    x0, x22
+Acrobat[0x1b58eb4] <+588>:  bl     0x3905b10                 ; symbol stub for: objc_release
+Acrobat[0x1b58eb8] <+592>:  mov    x0, x21
+Acrobat[0x1b58ebc] <+596>:  bl     0x3905b10                 ; symbol stub for: objc_release
+Acrobat[0x1b58ec0] <+600>:  bl     0xb050                    ; ___lldb_unnamed_symbol_b050
+Acrobat[0x1b58ec4] <+604>:  str    x0, [sp, #0x50]
+Acrobat[0x1b58ec8] <+608>:  ldr    x8, [x0]
+Acrobat[0x1b58ecc] <+612>:  str    x8, [sp, #0x40]
+Acrobat[0x1b58ed0] <+616>:  add    x8, sp, #0x40
+Acrobat[0x1b58ed4] <+620>:  str    x8, [x0]
+Acrobat[0x1b58ed8] <+624>:  adrp   x23, 7292
+Acrobat[0x1b58edc] <+628>:  add    x23, x23, #0xcb4          ; ___lldb_unnamed_symbol_37d4cb4
+Acrobat[0x1b58ee0] <+632>:  str    x23, [sp, #0x48]
+Acrobat[0x1b58ee4] <+636>:  add    x0, sp, #0x70
+Acrobat[0x1b58ee8] <+640>:  bl     0x31d1210                 ; ___lldb_unnamed_symbol_31d1210
+Acrobat[0x1b58eec] <+644>:  cbz    x0, 0x1b58fc0             ; <+856>
+Acrobat[0x1b58ef0] <+648>:  add    x0, sp, #0x70
+Acrobat[0x1b58ef4] <+652>:  mov    w1, #0x1                  ; =1 
+Acrobat[0x1b58ef8] <+656>:  mov    w2, #0x0                  ; =0 
+Acrobat[0x1b58efc] <+660>:  bl     0x37fb1d0                 ; ___lldb_unnamed_symbol_37fb1d0
+Acrobat[0x1b58f00] <+664>:  cbz    w0, 0x1b58fc0             ; <+856>
+Acrobat[0x1b58f04] <+668>:  add    x0, sp, #0x70
+Acrobat[0x1b58f08] <+672>:  bl     0x31d1210                 ; ___lldb_unnamed_symbol_31d1210
+Acrobat[0x1b58f0c] <+676>:  mov    x21, x0
+Acrobat[0x1b58f10] <+680>:  add    x0, sp, #0x70
+Acrobat[0x1b58f14] <+684>:  bl     0x37fa0c4                 ; ___lldb_unnamed_symbol_37fa0c4
+Acrobat[0x1b58f18] <+688>:  mov    x1, x0
+Acrobat[0x1b58f1c] <+692>:  mov    x0, x21
+Acrobat[0x1b58f20] <+696>:  mov    x2, #0x0                  ; =0 
+Acrobat[0x1b58f24] <+700>:  mov    w3, #0x1                  ; =1 
+Acrobat[0x1b58f28] <+704>:  bl     0x34ddfb8                 ; ___lldb_unnamed_symbol_34ddfb8
+Acrobat[0x1b58f2c] <+708>:  mov    x21, x0
+Acrobat[0x1b58f30] <+712>:  ldr    x8, [sp, #0x40]
+Acrobat[0x1b58f34] <+716>:  ldr    x9, [sp, #0x50]
+Acrobat[0x1b58f38] <+720>:  str    x8, [x9]
+Acrobat[0x1b58f3c] <+724>:  cbz    x0, 0x1b58fcc             ; <+868>
+Acrobat[0x1b58f40] <+728>:  add    x0, sp, #0x88
+Acrobat[0x1b58f44] <+732>:  bl     0x1b58840                 ; ___lldb_unnamed_symbol_1b58840
+Acrobat[0x1b58f48] <+736>:  mov    x22, x0
+Acrobat[0x1b58f4c] <+740>:  add    x0, sp, #0x30
+Acrobat[0x1b58f50] <+744>:  bl     0xf710                    ; ___lldb_unnamed_symbol_f710
+Acrobat[0x1b58f54] <+748>:  add    x0, sp, #0x20
+Acrobat[0x1b58f58] <+752>:  bl     0xf710                    ; ___lldb_unnamed_symbol_f710
+Acrobat[0x1b58f5c] <+756>:  add    x0, sp, #0x30
+Acrobat[0x1b58f60] <+760>:  bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b58f64] <+764>:  bl     0x15754                   ; ___lldb_unnamed_symbol_15754
+Acrobat[0x1b58f68] <+768>:  add    x0, sp, #0x20
+Acrobat[0x1b58f6c] <+772>:  bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b58f70] <+776>:  bl     0x15754                   ; ___lldb_unnamed_symbol_15754
+Acrobat[0x1b58f74] <+780>:  cmp    w22, #0x1
+Acrobat[0x1b58f78] <+784>:  b.gt   0x1b58fe0                 ; <+888>
+Acrobat[0x1b58f7c] <+788>:  cbnz   w22, 0x1b59028            ; <+960>
+Acrobat[0x1b58f80] <+792>:  add    x0, sp, #0x30
+Acrobat[0x1b58f84] <+796>:  bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b58f88] <+800>:  adrp   x1, 10267
+Acrobat[0x1b58f8c] <+804>:  add    x1, x1, #0x717            ; "Producer"
+Acrobat[0x1b58f90] <+808>:  bl     0x84168                   ; ___lldb_unnamed_symbol_84168
+Acrobat[0x1b58f94] <+812>:  add    x0, sp, #0x20
+Acrobat[0x1b58f98] <+816>:  bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b58f9c] <+820>:  adrp   x1, 10575
+Acrobat[0x1b58fa0] <+824>:  add    x1, x1, #0xe22            ; "Acrobat PDFMaker 15 for Word"
+Acrobat[0x1b58fa4] <+828>:  bl     0x84168                   ; ___lldb_unnamed_symbol_84168
+Acrobat[0x1b58fa8] <+832>:  add    x0, sp, #0x30
+Acrobat[0x1b58fac] <+836>:  bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b58fb0] <+840>:  mov    x22, x0
+Acrobat[0x1b58fb4] <+844>:  add    x0, sp, #0x20
+Acrobat[0x1b58fb8] <+848>:  bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b58fbc] <+852>:  b      0x1b59064                 ; <+1020>
+Acrobat[0x1b58fc0] <+856>:  ldr    x8, [sp, #0x40]
+Acrobat[0x1b58fc4] <+860>:  ldr    x9, [sp, #0x50]
+Acrobat[0x1b58fc8] <+864>:  str    x8, [x9]
+Acrobat[0x1b58fcc] <+868>:  ldurh  w8, [x29, #-0x7a]
+Acrobat[0x1b58fd0] <+872>:  cmp    w8, #0x7
+Acrobat[0x1b58fd4] <+876>:  b.eq   0x1b59278                 ; <+1552>
+Acrobat[0x1b58fd8] <+880>:  sturh  wzr, [x29, #-0x7a]
+Acrobat[0x1b58fdc] <+884>:  b      0x1b59278                 ; <+1552>
+Acrobat[0x1b58fe0] <+888>:  cmp    w22, #0x2
+Acrobat[0x1b58fe4] <+892>:  b.ne   0x1b59074                 ; <+1036>
+Acrobat[0x1b58fe8] <+896>:  add    x0, sp, #0x30
+Acrobat[0x1b58fec] <+900>:  bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b58ff0] <+904>:  adrp   x1, 10267
+Acrobat[0x1b58ff4] <+908>:  add    x1, x1, #0x717            ; "Producer"
+Acrobat[0x1b58ff8] <+912>:  bl     0x84168                   ; ___lldb_unnamed_symbol_84168
+Acrobat[0x1b58ffc] <+916>:  add    x0, sp, #0x20
+Acrobat[0x1b59000] <+920>:  bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b59004] <+924>:  adrp   x1, 10574
+Acrobat[0x1b59008] <+928>:  add    x1, x1, #0xe5d            ; "Acrobat PDFMaker 15 for PowerPoint"
+Acrobat[0x1b5900c] <+932>:  bl     0x84168                   ; ___lldb_unnamed_symbol_84168
+Acrobat[0x1b59010] <+936>:  add    x0, sp, #0x30
+Acrobat[0x1b59014] <+940>:  bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b59018] <+944>:  mov    x22, x0
+Acrobat[0x1b5901c] <+948>:  add    x0, sp, #0x20
+Acrobat[0x1b59020] <+952>:  bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b59024] <+956>:  b      0x1b59064                 ; <+1020>
+Acrobat[0x1b59028] <+960>:  add    x0, sp, #0x30
+Acrobat[0x1b5902c] <+964>:  bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b59030] <+968>:  adrp   x1, 10266
+Acrobat[0x1b59034] <+972>:  add    x1, x1, #0x717            ; "Producer"
+Acrobat[0x1b59038] <+976>:  bl     0x84168                   ; ___lldb_unnamed_symbol_84168
+Acrobat[0x1b5903c] <+980>:  add    x0, sp, #0x20
+Acrobat[0x1b59040] <+984>:  bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b59044] <+988>:  adrp   x1, 10574
+Acrobat[0x1b59048] <+992>:  add    x1, x1, #0xe3f            ; "Acrobat PDFMaker 15 for Excel"
+Acrobat[0x1b5904c] <+996>:  bl     0x84168                   ; ___lldb_unnamed_symbol_84168
+Acrobat[0x1b59050] <+1000>: add    x0, sp, #0x30
+Acrobat[0x1b59054] <+1004>: bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b59058] <+1008>: mov    x22, x0
+Acrobat[0x1b5905c] <+1012>: add    x0, sp, #0x20
+Acrobat[0x1b59060] <+1016>: bl     0xf878                    ; ___lldb_unnamed_symbol_f878
+Acrobat[0x1b59064] <+1020>: mov    x2, x0
+Acrobat[0x1b59068] <+1024>: mov    x0, x21
+Acrobat[0x1b5906c] <+1028>: mov    x1, x22
+Acrobat[0x1b59070] <+1032>: bl     0x34f3e3c                 ; ___lldb_unnamed_symbol_34f3e3c
+Acrobat[0x1b59074] <+1036>: cbz    x19, 0x1b591e0            ; <+1400>
+Acrobat[0x1b59078] <+1040>: str    xzr, [sp, #0x18]
+Acrobat[0x1b5907c] <+1044>: bl     0xb050                    ; ___lldb_unnamed_symbol_b050
+Acrobat[0x1b59080] <+1048>: str    x0, [sp, #0x50]
+Acrobat[0x1b59084] <+1052>: ldr    x8, [x0]
+Acrobat[0x1b59088] <+1056>: str    x8, [sp, #0x40]
+Acrobat[0x1b5908c] <+1060>: add    x8, sp, #0x40
+Acrobat[0x1b59090] <+1064>: str    x8, [x0]
+Acrobat[0x1b59094] <+1068>: str    x23, [sp, #0x48]
+Acrobat[0x1b59098] <+1072>: cbz    x20, 0x1b590d0            ; <+1128>
+Acrobat[0x1b5909c] <+1076>: adrp   x1, 10512
+Acrobat[0x1b590a0] <+1080>: add    x1, x1, #0x8d9            ; "PageRangeText"
+Acrobat[0x1b590a4] <+1084>: mov    x0, x20
+Acrobat[0x1b590a8] <+1088>: bl     0x1e838                   ; ___lldb_unnamed_symbol_1e838
+Acrobat[0x1b590ac] <+1092>: cbz    x0, 0x1b590d0             ; <+1128>
+Acrobat[0x1b590b0] <+1096>: add    x1, sp, #0x18
+Acrobat[0x1b590b4] <+1100>: mov    w2, #0x7fffffff           ; =2147483647 
+Acrobat[0x1b590b8] <+1104>: mov    w3, #-0x3                 ; =-3 
+Acrobat[0x1b590bc] <+1108>: bl     0x34b3e34                 ; ___lldb_unnamed_symbol_34b3e34
+Acrobat[0x1b590c0] <+1112>: ldr    x8, [sp, #0x18]
+Acrobat[0x1b590c4] <+1116>: cmp    x8, #0x0
+Acrobat[0x1b590c8] <+1120>: csel   w22, wzr, w0, eq
+Acrobat[0x1b590cc] <+1124>: b      0x1b590d4                 ; <+1132>
+Acrobat[0x1b590d0] <+1128>: mov    w22, #0x0                 ; =0 
+Acrobat[0x1b590d4] <+1132>: ldr    x8, [sp, #0x40]
+Acrobat[0x1b590d8] <+1136>: ldr    x9, [sp, #0x50]
+Acrobat[0x1b590dc] <+1140>: str    x8, [x9]
+Acrobat[0x1b590e0] <+1144>: bl     0xb050                    ; ___lldb_unnamed_symbol_b050
+Acrobat[0x1b590e4] <+1148>: str    x0, [sp, #0x50]
+Acrobat[0x1b590e8] <+1152>: ldr    x8, [x0]
+Acrobat[0x1b590ec] <+1156>: str    x8, [sp, #0x40]
+Acrobat[0x1b590f0] <+1160>: add    x8, sp, #0x40
+Acrobat[0x1b590f4] <+1164>: str    x8, [x0]
+Acrobat[0x1b590f8] <+1168>: str    x23, [sp, #0x48]
+Acrobat[0x1b590fc] <+1172>: cmp    w22, #0x0
+Acrobat[0x1b59100] <+1176>: csinc  w8, w24, wzr, eq
+Acrobat[0x1b59104] <+1180>: tbz    w8, #0x0, 0x1b59190       ; <+1320>
+Acrobat[0x1b59108] <+1184>: bl     0x34f3920                 ; ___lldb_unnamed_symbol_34f3920
+Acrobat[0x1b5910c] <+1188>: str    x0, [x19]
+Acrobat[0x1b59110] <+1192>: cbz    w22, 0x1b591a4            ; <+1340>
+Acrobat[0x1b59114] <+1196>: mov    x0, x21
+Acrobat[0x1b59118] <+1200>: bl     0xa14a4                   ; ___lldb_unnamed_symbol_a14a4
+Acrobat[0x1b5911c] <+1204>: cmp    w22, #0x1
+Acrobat[0x1b59120] <+1208>: b.lt   0x1b591c8                 ; <+1376>
+Acrobat[0x1b59124] <+1212>: mov    x20, x0
+Acrobat[0x1b59128] <+1216>: mov    x26, #0x0                 ; =0 
+Acrobat[0x1b5912c] <+1220>: mov    w8, #0xc                  ; =12 
+Acrobat[0x1b59130] <+1224>: umull  x22, w22, w8
+Acrobat[0x1b59134] <+1228>: ldr    x8, [sp, #0x18]
+Acrobat[0x1b59138] <+1232>: ldr    w3, [x8, x26]
+Acrobat[0x1b5913c] <+1236>: cmp    w3, w20
+Acrobat[0x1b59140] <+1240>: b.ge   0x1b59180                 ; <+1304>
+Acrobat[0x1b59144] <+1244>: add    x8, x8, x26
+Acrobat[0x1b59148] <+1248>: ldr    w8, [x8, #0x4]
+Acrobat[0x1b5914c] <+1252>: cmp    w8, w20
+Acrobat[0x1b59150] <+1256>: ccmp   w8, w3, #0x8, lt
+Acrobat[0x1b59154] <+1260>: b.lt   0x1b59180                 ; <+1304>
+Acrobat[0x1b59158] <+1264>: ldr    x0, [x19]
+Acrobat[0x1b5915c] <+1268>: sub    w8, w8, w3
+Acrobat[0x1b59160] <+1272>: stp    xzr, xzr, [sp]
+Acrobat[0x1b59164] <+1276>: add    w4, w8, #0x1
+Acrobat[0x1b59168] <+1280>: and    w5, w25, #0xffff
+Acrobat[0x1b5916c] <+1284>: mov    w1, #-0x2                 ; =-2 
+Acrobat[0x1b59170] <+1288>: mov    x2, x21
+Acrobat[0x1b59174] <+1292>: mov    x6, #0x0                  ; =0 
+Acrobat[0x1b59178] <+1296>: mov    x7, #0x0                  ; =0 
+Acrobat[0x1b5917c] <+1300>: bl     0x352406c                 ; ___lldb_unnamed_symbol_352406c
+Acrobat[0x1b59180] <+1304>: add    x26, x26, #0xc
+Acrobat[0x1b59184] <+1308>: cmp    x22, x26
+Acrobat[0x1b59188] <+1312>: b.ne   0x1b59134                 ; <+1228>
+Acrobat[0x1b5918c] <+1316>: b      0x1b591c8                 ; <+1376>
+Acrobat[0x1b59190] <+1320>: str    x21, [x19]
+Acrobat[0x1b59194] <+1324>: mov    x0, x21
+Acrobat[0x1b59198] <+1328>: mov    w1, #0xb                  ; =11 
+Acrobat[0x1b5919c] <+1332>: bl     0x34dd94c                 ; ___lldb_unnamed_symbol_34dd94c
+Acrobat[0x1b591a0] <+1336>: b      0x1b591c8                 ; <+1376>
+Acrobat[0x1b591a4] <+1340>: stp    xzr, xzr, [sp]
+Acrobat[0x1b591a8] <+1344>: and    w5, w25, #0xffff
+Acrobat[0x1b591ac] <+1348>: mov    w1, #-0x2                 ; =-2 
+Acrobat[0x1b591b0] <+1352>: mov    x2, x21
+Acrobat[0x1b591b4] <+1356>: mov    w3, #0x0                  ; =0 
+Acrobat[0x1b591b8] <+1360>: mov    w4, #-0x3                 ; =-3 
+Acrobat[0x1b591bc] <+1364>: mov    x6, #0x0                  ; =0 
+Acrobat[0x1b591c0] <+1368>: mov    x7, #0x0                  ; =0 
+Acrobat[0x1b591c4] <+1372>: bl     0x352406c                 ; ___lldb_unnamed_symbol_352406c
+Acrobat[0x1b591c8] <+1376>: ldr    x8, [sp, #0x40]
+Acrobat[0x1b591cc] <+1380>: ldr    x9, [sp, #0x50]
+Acrobat[0x1b591d0] <+1384>: str    x8, [x9]
+Acrobat[0x1b591d4] <+1388>: ldr    x0, [sp, #0x18]
+Acrobat[0x1b591d8] <+1392>: cbz    x0, 0x1b591e0             ; <+1400>
+Acrobat[0x1b591dc] <+1396>: bl     0x10248                   ; ___lldb_unnamed_symbol_10248
+Acrobat[0x1b591e0] <+1400>: bl     0xb050                    ; ___lldb_unnamed_symbol_b050
+Acrobat[0x1b591e4] <+1404>: str    x0, [sp, #0x50]
+Acrobat[0x1b591e8] <+1408>: ldr    x8, [x0]
+Acrobat[0x1b591ec] <+1412>: str    x8, [sp, #0x40]
+Acrobat[0x1b591f0] <+1416>: add    x8, sp, #0x40
+Acrobat[0x1b591f4] <+1420>: str    x8, [x0]
+Acrobat[0x1b591f8] <+1424>: str    x23, [sp, #0x48]
+Acrobat[0x1b591fc] <+1428>: ldr    x8, [x19]
+Acrobat[0x1b59200] <+1432>: cmp    x21, x8
+Acrobat[0x1b59204] <+1436>: b.eq   0x1b59210                 ; <+1448>
+Acrobat[0x1b59208] <+1440>: mov    x0, x21
+Acrobat[0x1b5920c] <+1444>: bl     0x34dd908                 ; ___lldb_unnamed_symbol_34dd908
+Acrobat[0x1b59210] <+1448>: ldr    x8, [sp, #0x40]
+Acrobat[0x1b59214] <+1452>: ldr    x9, [sp, #0x50]
+Acrobat[0x1b59218] <+1456>: str    x8, [x9]
+Acrobat[0x1b5921c] <+1460>: adrp   x8, 11236
+Acrobat[0x1b59220] <+1464>: add    x8, x8, #0xd50
+Acrobat[0x1b59224] <+1468>: add    x20, x8, #0x10
+Acrobat[0x1b59228] <+1472>: str    x20, [sp, #0x20]
+Acrobat[0x1b5922c] <+1476>: ldr    x0, [sp, #0x28]
+Acrobat[0x1b59230] <+1480>: cbz    x0, 0x1b59250             ; <+1512>
+Acrobat[0x1b59234] <+1484>: ldr    w8, [x0, #0x10]
+Acrobat[0x1b59238] <+1488>: subs   w8, w8, #0x1
+Acrobat[0x1b5923c] <+1492>: str    w8, [x0, #0x10]
+Acrobat[0x1b59240] <+1496>: b.ne   0x1b59250                 ; <+1512>
+Acrobat[0x1b59244] <+1500>: ldr    x8, [x0]
+Acrobat[0x1b59248] <+1504>: ldr    x8, [x8, #0x8]
+Acrobat[0x1b5924c] <+1508>: blr    x8
+Acrobat[0x1b59250] <+1512>: str    x20, [sp, #0x30]
+Acrobat[0x1b59254] <+1516>: ldr    x0, [sp, #0x38]
+Acrobat[0x1b59258] <+1520>: cbz    x0, 0x1b59278             ; <+1552>
+Acrobat[0x1b5925c] <+1524>: ldr    w8, [x0, #0x10]
+Acrobat[0x1b59260] <+1528>: subs   w8, w8, #0x1
+Acrobat[0x1b59264] <+1532>: str    w8, [x0, #0x10]
+Acrobat[0x1b59268] <+1536>: b.ne   0x1b59278                 ; <+1552>
+Acrobat[0x1b5926c] <+1540>: ldr    x8, [x0]
+Acrobat[0x1b59270] <+1544>: ldr    x8, [x8, #0x8]
+Acrobat[0x1b59274] <+1548>: blr    x8
+Acrobat[0x1b59278] <+1552>: cbz    x19, 0x1b59290            ; <+1576>
+Acrobat[0x1b5927c] <+1556>: ldr    x0, [x19]
+Acrobat[0x1b59280] <+1560>: cbz    x0, 0x1b59290             ; <+1576>
+Acrobat[0x1b59284] <+1564>: bl     0xa14a4                   ; ___lldb_unnamed_symbol_a14a4
+Acrobat[0x1b59288] <+1568>: cmp    w0, #0x0
+Acrobat[0x1b5928c] <+1572>: b.le   0x1b592f0                 ; <+1672>
+Acrobat[0x1b59290] <+1576>: tbnz   w24, #0x0, 0x1b59298      ; <+1584>
+Acrobat[0x1b59294] <+1580>: bl     0x1b53efc                 ; ___lldb_unnamed_symbol_1b53efc
+Acrobat[0x1b59298] <+1584>: ldurh  w19, [x29, #-0x7a]
+Acrobat[0x1b5929c] <+1588>: add    x0, sp, #0x70
+Acrobat[0x1b592a0] <+1592>: bl     0x1f9da4                  ; ___lldb_unnamed_symbol_1f9da4
+Acrobat[0x1b592a4] <+1596>: add    x0, sp, #0x88
+Acrobat[0x1b592a8] <+1600>: bl     0x1f9da4                  ; ___lldb_unnamed_symbol_1f9da4
+Acrobat[0x1b592ac] <+1604>: ldur   x8, [x29, #-0x78]
+Acrobat[0x1b592b0] <+1608>: adrp   x9, 11233
+Acrobat[0x1b592b4] <+1612>: ldr    x9, [x9, #0x880]
+Acrobat[0x1b592b8] <+1616>: ldr    x9, [x9]
+Acrobat[0x1b592bc] <+1620>: cmp    x9, x8
+Acrobat[0x1b592c0] <+1624>: b.ne   0x1b59338                 ; <+1744>
+Acrobat[0x1b592c4] <+1628>: sxth   w0, w19
+Acrobat[0x1b592c8] <+1632>: ldp    x29, x30, [sp, #0x120]
+Acrobat[0x1b592cc] <+1636>: ldp    x20, x19, [sp, #0x110]
+Acrobat[0x1b592d0] <+1640>: ldp    x22, x21, [sp, #0x100]
+Acrobat[0x1b592d4] <+1644>: ldp    x24, x23, [sp, #0xf0]
+Acrobat[0x1b592d8] <+1648>: ldp    x26, x25, [sp, #0xe0]
+Acrobat[0x1b592dc] <+1652>: ldp    x28, x27, [sp, #0xd0]
+Acrobat[0x1b592e0] <+1656>: ldp    d9, d8, [sp, #0xc0]
+Acrobat[0x1b592e4] <+1660>: ldp    d11, d10, [sp, #0xb0]
+Acrobat[0x1b592e8] <+1664>: add    sp, sp, #0x130
+Acrobat[0x1b592ec] <+1668>: ret    
+Acrobat[0x1b592f0] <+1672>: bl     0xb050                    ; ___lldb_unnamed_symbol_b050
+Acrobat[0x1b592f4] <+1676>: str    x0, [sp, #0x50]
+Acrobat[0x1b592f8] <+1680>: ldr    x8, [x0]
+Acrobat[0x1b592fc] <+1684>: str    x8, [sp, #0x40]
+Acrobat[0x1b59300] <+1688>: add    x8, sp, #0x40
+Acrobat[0x1b59304] <+1692>: str    x8, [x0]
+Acrobat[0x1b59308] <+1696>: adrp   x8, 7291
+Acrobat[0x1b5930c] <+1700>: add    x8, x8, #0xcb4            ; ___lldb_unnamed_symbol_37d4cb4
+Acrobat[0x1b59310] <+1704>: str    x8, [sp, #0x48]
+Acrobat[0x1b59314] <+1708>: ldr    x0, [x19]
+Acrobat[0x1b59318] <+1712>: bl     0x34dd908                 ; ___lldb_unnamed_symbol_34dd908
+Acrobat[0x1b5931c] <+1716>: ldr    x8, [sp, #0x40]
+Acrobat[0x1b59320] <+1720>: ldr    x9, [sp, #0x50]
+Acrobat[0x1b59324] <+1724>: str    x8, [x9]
+Acrobat[0x1b59328] <+1728>: str    xzr, [x19]
+Acrobat[0x1b5932c] <+1732>: sturh  wzr, [x29, #-0x7a]
+Acrobat[0x1b59330] <+1736>: tbz    w24, #0x0, 0x1b59294      ; <+1580>
+Acrobat[0x1b59334] <+1740>: b      0x1b59298                 ; <+1584>
+Acrobat[0x1b59338] <+1744>: bl     0x39051b0                 ; symbol stub for: __stack_chk_fail
+Acrobat[0x1b5933c] <+1748>: b      0x1b593ec                 ; <+1924>
+Acrobat[0x1b59340] <+1752>: b      0x1b594ac                 ; <+2116>
+Acrobat[0x1b59344] <+1756>: mov    x20, x0
+Acrobat[0x1b59348] <+1760>: ldr    x8, [sp, #0x40]
+Acrobat[0x1b5934c] <+1764>: ldr    x9, [sp, #0x50]
+Acrobat[0x1b59350] <+1768>: str    x8, [x9]
+Acrobat[0x1b59354] <+1772>: b      0x1b5935c                 ; <+1780>
+Acrobat[0x1b59358] <+1776>: mov    x20, x0
+Acrobat[0x1b5935c] <+1780>: cmp    w1, #0x1
+Acrobat[0x1b59360] <+1784>: b.ne   0x1b59554                 ; <+2284>
+Acrobat[0x1b59364] <+1788>: mov    x0, x20
+Acrobat[0x1b59368] <+1792>: bl     0x39050e4                 ; symbol stub for: __cxa_begin_catch
+Acrobat[0x1b5936c] <+1796>: bl     0x39050f0                 ; symbol stub for: __cxa_end_catch
+Acrobat[0x1b59370] <+1800>: b      0x1b59328                 ; <+1728>
+Acrobat[0x1b59374] <+1804>: b      0x1b59550                 ; <+2280>
+Acrobat[0x1b59378] <+1808>: mov    x20, x0
+Acrobat[0x1b5937c] <+1812>: ldr    x8, [sp, #0x40]
+Acrobat[0x1b59380] <+1816>: ldr    x9, [sp, #0x50]
+Acrobat[0x1b59384] <+1820>: str    x8, [x9]
+Acrobat[0x1b59388] <+1824>: b      0x1b5944c                 ; <+2020>
+Acrobat[0x1b5938c] <+1828>: mov    x20, x0
+Acrobat[0x1b59390] <+1832>: b      0x1b593fc                 ; <+1940>
+Acrobat[0x1b59394] <+1836>: mov    x20, x0
+Acrobat[0x1b59398] <+1840>: b      0x1b593ac                 ; <+1860>
+Acrobat[0x1b5939c] <+1844>: mov    x20, x0
+Acrobat[0x1b593a0] <+1848>: ldr    x8, [sp, #0x40]
+Acrobat[0x1b593a4] <+1852>: ldr    x9, [sp, #0x50]
+Acrobat[0x1b593a8] <+1856>: str    x8, [x9]
+Acrobat[0x1b593ac] <+1860>: cmp    w1, #0x1
+Acrobat[0x1b593b0] <+1864>: b.ne   0x1b594b0                 ; <+2120>
+Acrobat[0x1b593b4] <+1868>: mov    x0, x20
+Acrobat[0x1b593b8] <+1872>: bl     0x39050e4                 ; symbol stub for: __cxa_begin_catch
+Acrobat[0x1b593bc] <+1876>: ldr    x0, [sp, #0x18]
+Acrobat[0x1b593c0] <+1880>: cbz    x0, 0x1b593c8             ; <+1888>
+Acrobat[0x1b593c4] <+1884>: bl     0x10248                   ; ___lldb_unnamed_symbol_10248
+Acrobat[0x1b593c8] <+1888>: str    xzr, [sp, #0x18]
+Acrobat[0x1b593cc] <+1892>: bl     0x39050f0                 ; symbol stub for: __cxa_end_catch
+Acrobat[0x1b593d0] <+1896>: mov    w22, #0x0                 ; =0 
+Acrobat[0x1b593d4] <+1900>: b      0x1b590e0                 ; <+1144>
+Acrobat[0x1b593d8] <+1904>: mov    x20, x0
+Acrobat[0x1b593dc] <+1908>: bl     0x39050f0                 ; symbol stub for: __cxa_end_catch
+Acrobat[0x1b593e0] <+1912>: b      0x1b594b0                 ; <+2120>
+Acrobat[0x1b593e4] <+1916>: b      0x1b594ac                 ; <+2116>
+Acrobat[0x1b593e8] <+1920>: b      0x1b593ec                 ; <+1924>
+Acrobat[0x1b593ec] <+1924>: mov    x20, x0
+Acrobat[0x1b593f0] <+1928>: ldr    x8, [sp, #0x40]
+Acrobat[0x1b593f4] <+1932>: ldr    x9, [sp, #0x50]
+Acrobat[0x1b593f8] <+1936>: str    x8, [x9]
+Acrobat[0x1b593fc] <+1940>: cmp    w1, #0x1
+Acrobat[0x1b59400] <+1944>: b.ne   0x1b594b0                 ; <+2120>
+Acrobat[0x1b59404] <+1948>: mov    x0, x20
+Acrobat[0x1b59408] <+1952>: bl     0x39050e4                 ; symbol stub for: __cxa_begin_catch
+Acrobat[0x1b5940c] <+1956>: ldr    x0, [x19]
+Acrobat[0x1b59410] <+1960>: cbz    x0, 0x1b59418             ; <+1968>
+Acrobat[0x1b59414] <+1964>: bl     0x34dd908                 ; ___lldb_unnamed_symbol_34dd908
+Acrobat[0x1b59418] <+1968>: str    xzr, [x19]
+Acrobat[0x1b5941c] <+1972>: sturh  wzr, [x29, #-0x7a]
+Acrobat[0x1b59420] <+1976>: bl     0x39050f0                 ; symbol stub for: __cxa_end_catch
+Acrobat[0x1b59424] <+1980>: b      0x1b591d4                 ; <+1388>
+Acrobat[0x1b59428] <+1984>: mov    x20, x0
+Acrobat[0x1b5942c] <+1988>: bl     0x39050f0                 ; symbol stub for: __cxa_end_catch
+Acrobat[0x1b59430] <+1992>: b      0x1b594b0                 ; <+2120>
+Acrobat[0x1b59434] <+1996>: mov    x20, x0
+Acrobat[0x1b59438] <+2000>: cbz    w1, 0x1b59564             ; <+2300>
+Acrobat[0x1b5943c] <+2004>: mov    x0, x20
+Acrobat[0x1b59440] <+2008>: bl     0x16e498                  ; ___lldb_unnamed_symbol_16e498
+Acrobat[0x1b59444] <+2012>: b      0x1b594ac                 ; <+2116>
+Acrobat[0x1b59448] <+2016>: mov    x20, x0
+Acrobat[0x1b5944c] <+2020>: cmp    w1, #0x1
+Acrobat[0x1b59450] <+2024>: b.ne   0x1b594b0                 ; <+2120>
+Acrobat[0x1b59454] <+2028>: mov    x0, x20
+Acrobat[0x1b59458] <+2032>: bl     0x39050e4                 ; symbol stub for: __cxa_begin_catch
+Acrobat[0x1b5945c] <+2036>: bl     0x39050f0                 ; symbol stub for: __cxa_end_catch
+Acrobat[0x1b59460] <+2040>: b      0x1b5921c                 ; <+1460>
+Acrobat[0x1b59464] <+2044>: b      0x1b594ac                 ; <+2116>
+Acrobat[0x1b59468] <+2048>: mov    x20, x0
+Acrobat[0x1b5946c] <+2052>: b      0x1b594e4                 ; <+2172>
+Acrobat[0x1b59470] <+2056>: b      0x1b59550                 ; <+2280>
+Acrobat[0x1b59474] <+2060>: b      0x1b59550                 ; <+2280>
+Acrobat[0x1b59478] <+2064>: b      0x1b59548                 ; <+2272>
+Acrobat[0x1b5947c] <+2068>: b      0x1b59548                 ; <+2272>
+Acrobat[0x1b59480] <+2072>: b      0x1b59548                 ; <+2272>
+Acrobat[0x1b59484] <+2076>: b      0x1b59548                 ; <+2272>
+Acrobat[0x1b59488] <+2080>: mov    x20, x0
+Acrobat[0x1b5948c] <+2084>: b      0x1b5952c                 ; <+2244>
+Acrobat[0x1b59490] <+2088>: mov    x20, x0
+Acrobat[0x1b59494] <+2092>: add    x0, sp, #0x58
+Acrobat[0x1b59498] <+2096>: b      0x1b59558                 ; <+2288>
+Acrobat[0x1b5949c] <+2100>: mov    x20, x0
+Acrobat[0x1b594a0] <+2104>: b      0x1b59564                 ; <+2300>
+Acrobat[0x1b594a4] <+2108>: b      0x1b59548                 ; <+2272>
+Acrobat[0x1b594a8] <+2112>: b      0x1b59548                 ; <+2272>
+Acrobat[0x1b594ac] <+2116>: mov    x20, x0
+Acrobat[0x1b594b0] <+2120>: adrp   x8, 11236
+Acrobat[0x1b594b4] <+2124>: add    x8, x8, #0xd50
+Acrobat[0x1b594b8] <+2128>: add    x8, x8, #0x10
+Acrobat[0x1b594bc] <+2132>: str    x8, [sp, #0x20]
+Acrobat[0x1b594c0] <+2136>: ldr    x0, [sp, #0x28]
+Acrobat[0x1b594c4] <+2140>: cbz    x0, 0x1b594e4             ; <+2172>
+Acrobat[0x1b594c8] <+2144>: ldr    w8, [x0, #0x10]
+Acrobat[0x1b594cc] <+2148>: subs   w8, w8, #0x1
+Acrobat[0x1b594d0] <+2152>: str    w8, [x0, #0x10]
+Acrobat[0x1b594d4] <+2156>: b.ne   0x1b594e4                 ; <+2172>
+Acrobat[0x1b594d8] <+2160>: ldr    x8, [x0]
+Acrobat[0x1b594dc] <+2164>: ldr    x8, [x8, #0x8]
+Acrobat[0x1b594e0] <+2168>: blr    x8
+Acrobat[0x1b594e4] <+2172>: adrp   x8, 11236
+Acrobat[0x1b594e8] <+2176>: add    x8, x8, #0xd50
+Acrobat[0x1b594ec] <+2180>: add    x8, x8, #0x10
+Acrobat[0x1b594f0] <+2184>: str    x8, [sp, #0x30]
+Acrobat[0x1b594f4] <+2188>: ldr    x0, [sp, #0x38]
+Acrobat[0x1b594f8] <+2192>: cbz    x0, 0x1b59554             ; <+2284>
+Acrobat[0x1b594fc] <+2196>: ldr    w8, [x0, #0x10]
+Acrobat[0x1b59500] <+2200>: subs   w8, w8, #0x1
+Acrobat[0x1b59504] <+2204>: str    w8, [x0, #0x10]
+Acrobat[0x1b59508] <+2208>: b.ne   0x1b59554                 ; <+2284>
+Acrobat[0x1b5950c] <+2212>: ldr    x8, [x0]
+Acrobat[0x1b59510] <+2216>: ldr    x8, [x8, #0x8]
+Acrobat[0x1b59514] <+2220>: blr    x8
+Acrobat[0x1b59518] <+2224>: b      0x1b59554                 ; <+2284>
+Acrobat[0x1b5951c] <+2228>: mov    x20, x0
+Acrobat[0x1b59520] <+2232>: ldr    x8, [sp, #0x40]
+Acrobat[0x1b59524] <+2236>: ldr    x9, [sp, #0x50]
+Acrobat[0x1b59528] <+2240>: str    x8, [x9]
+Acrobat[0x1b5952c] <+2244>: cmp    w1, #0x1
+Acrobat[0x1b59530] <+2248>: b.ne   0x1b59554                 ; <+2284>
+Acrobat[0x1b59534] <+2252>: mov    x0, x20
+Acrobat[0x1b59538] <+2256>: bl     0x39050e4                 ; symbol stub for: __cxa_begin_catch
+Acrobat[0x1b5953c] <+2260>: bl     0x39050f0                 ; symbol stub for: __cxa_end_catch
+Acrobat[0x1b59540] <+2264>: b      0x1b58fcc                 ; <+868>
+Acrobat[0x1b59544] <+2268>: b      0x1b59550                 ; <+2280>
+Acrobat[0x1b59548] <+2272>: mov    x20, x0
+Acrobat[0x1b5954c] <+2276>: b      0x1b5955c                 ; <+2292>
+Acrobat[0x1b59550] <+2280>: mov    x20, x0
+Acrobat[0x1b59554] <+2284>: add    x0, sp, #0x70
+Acrobat[0x1b59558] <+2288>: bl     0x1f9da4                  ; ___lldb_unnamed_symbol_1f9da4
+Acrobat[0x1b5955c] <+2292>: add    x0, sp, #0x88
+Acrobat[0x1b59560] <+2296>: bl     0x1f9da4                  ; ___lldb_unnamed_symbol_1f9da4
+Acrobat[0x1b59564] <+2300>: mov    x0, x20
+Acrobat[0x1b59568] <+2304>: bl     0x390437c                 ; symbol stub for: _Unwind_Resume
+(lldb) quit

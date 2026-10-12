@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-13",
+  "platform": "macOS arm64",
+  "apps": {
+    "Word": "16.113.4",
+    "Excel": "16.113.4",
+    "PowerPoint": "16.113.4"
+  },
+  "scope": "Synthetic Excel export regression; no user documents included.",
+  "fixture": {
+    "path": "tests/fixtures/excel-pagination.xlsx",
+    "sha256": "c63303586b2c73f55e29c496d94fbc61b697600c33f0d99bbce1621ec1bcd0a6"
+  },
+  "before_fix": {
+    "page_count": 17,
+    "expected_page_count": 2,
+    "observed_result": "Regression assertion failed before Excel print preparation was implemented."
+  },
+  "after_fix": {
+    "output": "docs/evidence/runtime/cli-excel-pagination.pdf",
+    "sha256": "1b0edfcf8623a70f224f8b17f4dab1bc4808d1e137de1feea5bf316684f995f2",
+    "page_count": 2,
+    "page_markers": [
+      [
+        "WIDE LEFT",
+        "WIDE RIGHT",
+        "BOTTOM"
+      ],
+      [
+        "FOLIO LEFT",
+        "FOLIO RIGHT",
+        "FOLIO BOTTOM"
+      ]
+    ],
+    "hidden_and_formatting_only_sheets_excluded": true
+  },
+  "suite": {
+    "command": "cargo test --locked -- --include-ignored --test-threads=1",
+    "passed": 18,
+    "failed": 0,
+    "ignored": 0,
+    "seconds": 55.55,
+    "log": "docs/evidence/runtime/excel-export-tests.log"
+  },
+  "checks": {
+    "source_bytes_unchanged": "asserted by regression test",
+    "cargo_fmt_check": "pass",
+    "cargo_clippy_all_targets_D_warnings": "pass",
+    "release_build": "pass"
+  },
+  "implementation_files": {
+    "src/office/macos.rs": "4a3e370e7aa271206a33402e0b9810da1bf8d8a8ec51ad6e5f0f4c26a28bcb5f",
+    "src/office/excel.applescript": "30e2fbbf51f330c6a40212307a2ccf1d5c4020236573606f16b63e4c24769c39",
+    "tests/merge.rs": "41b0d10fdc9e5eeef199079e0da443acf2eb275e52628d8c5c1402286b73a0e3"
+  },
+  "observations": [
+    "Find with no matches can raise error -50 in installed Excel; treat as no content.",
+    "The installed AppleScript fit-to-pages-tall setter rejects false and 0; 32767 allows vertical continuation.",
+    "All print changes apply to the read-only staged copy; it is closed without saving."
+  ],
+  "office_after": {
+    "Word": "0, msoAutomationSecurityLow",
+    "Excel": "0, msoAutomationSecurityLow"
+  },
+  "staging_empty": true
+}

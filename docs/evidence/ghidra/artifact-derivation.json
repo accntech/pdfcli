@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Acrobat",
+    "original_path": "/Applications/Adobe Acrobat DC/Adobe Acrobat.app/Contents/Frameworks/Acrobat.framework/Versions/A/Acrobat",
+    "original_sha256": "ddbe975f487125b09dc8038fe91a6d1f106b070ba62069f8cc6ec2928fe27bd1",
+    "derived_path": "/Users/ogie/RustProjects/pdfcli/target/acrobat-arm64/Acrobat",
+    "derived_sha256": "863f10faf69df6bb26432906dbaa6a0df59110e53571c7c78493f7b4190d3c22",
+    "transformation": "Apple lipo -thin arm64; original unmodified"
+  },
+  {
+    "name": "AdobePDFL",
+    "original_path": "/Applications/Adobe Acrobat DC/Adobe Acrobat.app/Contents/Frameworks/AdobePDFL.framework/Versions/A/AdobePDFL",
+    "original_sha256": "56d9441c5a45490ccca79d16befbd0c0b9169527d837d0ee8143d6f7a6119c7c",
+    "derived_path": "/Users/ogie/RustProjects/pdfcli/target/acrobat-arm64/AdobePDFL",
+    "derived_sha256": "88d59200c1bb58fcf0859f23ba3862e62a51e9943536d1f379c2c76ed704fdb3",
+    "transformation": "Apple lipo -thin arm64; original unmodified"
+  }
+]

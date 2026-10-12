@@ -1,0 +1,52 @@
+{
+  "kind": "supplementary offline static observations, not REA Evidence",
+  "source": "/Applications/Adobe Acrobat DC/Adobe Acrobat.app/Contents/Frameworks/Acrobat.framework/Versions/A/Acrobat",
+  "sha256": "ddbe975f487125b09dc8038fe91a6d1f106b070ba62069f8cc6ec2928fe27bd1",
+  "arm64_slice_file_offset": 83263488,
+  "address_convention": "Unslid Mach-O virtual addresses; these positions equal thin-slice file offsets for the cited text/data ranges. Original universal offsets add 83263488.",
+  "seeds": [
+    {
+      "address": "0x2bc496c",
+      "role": "command registration",
+      "observed": "MultiFileViewPerformCombine string loaded at0x2bc5b8c/90; command identifier0xcdb assigned nearby."
+    },
+    {
+      "address": "0x1582fa4",
+      "role": "CombineAppCommandHandler vtable method",
+      "rtti_name_address": "0x40085fe",
+      "rtti_address": "0x499ad70",
+      "vtable_entry_address": "0x49996e0",
+      "observed": "Compares requested command to0xcdb at0x15830f4 and calls0x1578808 at0x1583140."
+    },
+    {
+      "address": "0x1578808",
+      "role": "command-side dispatch",
+      "observed": "Checks context via0xc58f60; tailcalls0x2870944. The latter enters virtual methods through0xf31968 (+0x38) and0xb28074 (+0x110). Complete connection to assembly is unresolved."
+    },
+    {
+      "address": "0x152d0d0",
+      "role": "document assembly candidate",
+      "observed": "Function address stored at0x4db1b58, part of table starting0x4db1b08. References AVDocAssembly.cpp and AVCollabCombine_PerformCombine; directly calls0x352406c at0x152f15c and0x152f338."
+    },
+    {
+      "address": "0x1b589a4",
+      "role": "Office converter registration",
+      "observed": "Registers word and ppt identifiers with callback0x1b58c68, excel with callback0x1b5956c."
+    },
+    {
+      "address": "0x1b58c68",
+      "role": "Office import callback",
+      "observed": "Calls conversion bridge0x1b5ecbc, opens returned PDF at0x34ddfb8. Uses UseAssemblyView, AlwaysAddBookmarks, PageRangeText. Calls page insertion at0x1b5917c and0x1b591c4."
+    },
+    {
+      "address": "0x352406c",
+      "role": "derived PDDocInsertPages identity",
+      "observation": "Unique exact match of first68 bytes to symbolized AdobePDFL PDDocInsertPages (ARM64 address0x1a021c), plus matching permission-check control flow. Core adds a guard. Calls0x35241e4 after checks. Identity is derived, not an original core symbol."
+    }
+  ],
+  "limitations": [
+    "No target launch, attach, or runtime observation.",
+    "Direct-call scan cannot resolve all virtual or function-table calls.",
+    "Pointer decoding is build-specific DYLD_CHAINED_PTR_64_OFFSET and was verified by bounded LLDB disassembly for cited text."
+  ]
+}

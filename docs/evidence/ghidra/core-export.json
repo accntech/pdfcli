@@ -1,0 +1,16 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"/Users/ogie/RustProjects/pdfcli/docs/evidence/ghidra/core-evidence-bundle.json\",\"bytes\":38319706,\"records\":22,\"unknowns\":0}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "/Users/ogie/RustProjects/pdfcli/docs/evidence/ghidra/core-evidence-bundle.json",
+      "bytes": 38319706,
+      "records": 22,
+      "unknowns": 0
+    }
+  }
+}

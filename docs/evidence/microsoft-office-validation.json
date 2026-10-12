@@ -1,0 +1,57 @@
+{
+  "recorded_at": "2026-10-12T16:44:23.767377+00:00",
+  "evidence_kind": "Local CLI runtime validation; separate from REA Acrobat evidence",
+  "command": "cargo test --locked --test merge -- --include-ignored --test-threads=1",
+  "tests": {
+    "passed": 13,
+    "failed": 0,
+    "ignored": 0,
+    "duration_seconds": 3.98
+  },
+  "native_office_tests": {
+    "mixed_docx_xlsx_pptx_with_repeated_basename": "passed",
+    "excel_visible_sheets_hidden_excluded": "passed"
+  },
+  "poppler_rendering_test": "passed: source and merged page pixels identical",
+  "cargo_clippy": "passed with --locked --all-targets -- -D warnings",
+  "cargo_fmt": "passed --check",
+  "release_build": "passed --release --locked",
+  "office_versions": {
+    "Word": "16.113.4",
+    "Excel": "16.113.4",
+    "PowerPoint": "16.113.4"
+  },
+  "office_state_before": {
+    "Word": "0, msoAutomationSecurityLow",
+    "Excel": "0, msoAutomationSecurityLow",
+    "Powerpoint": "0, missing value"
+  },
+  "office_state_after": {
+    "Word": "0, msoAutomationSecurityLow",
+    "Excel": "0, msoAutomationSecurityLow",
+    "Powerpoint": "0, missing value"
+  },
+  "already_open_word_source_preserved": true,
+  "source_bytes_unchanged": true,
+  "staging_folder_empty_after_verification": true,
+  "retained_recovery": null,
+  "sample_output": {
+    "path": "runtime/cli-native-office.pdf",
+    "pages": 5,
+    "ordered_markers": [
+      "BASE PAGE",
+      "WORD MARKER",
+      "SHEET MARKER",
+      "SLIDE MARKER",
+      "WORD MARKER"
+    ],
+    "sha256": "4bc8e48e456bf5caa6436011418f4ac1481b3f46353f55e8b27682c7d8f93f93"
+  },
+  "limitations": [
+    "PowerPoint 16.113.4 returns missing value for automation security; existing macro policy is preserved.",
+    "Legacy DOC/XLS/PPT were subsequently verified in legacy-office-validation.json. RTF remains untested.",
+    "Initial per-app folder access requires an interactive macOS session.",
+    "This validates the independent Rust CLI, not a live trace of Acrobat Office conversion."
+  ],
+  "legacy_followup_validation": "legacy-office-validation.json"
+}

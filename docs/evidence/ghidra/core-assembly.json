@@ -1,0 +1,9 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"error\":{\"code\":\"resource_constraint\",\"category\":\"resource_constraint\",\"message\":\"The operation completed, but its complete MCP response exceeds the stdio response budget. The analysis result was not truncated. Export retained evidence to consume the complete analysis, or use complete CLI JSON output.\",\"retryable\":false,\"remediation\":{\"action\":\"Discover retained records with get_evidence_bundle and detail: summary, then inspect compatible records through inspect_analysis_view using an exact Evidence reference. Export complete retained session evidence through export_evidence_bundle to a caller-selected path, or use complete CLI JSON output. The connection remains usable.\"},\"details\":{\"operation\":\"analyze_function\",\"resource\":\"transport\",\"reason\":\"The operation completed, but its complete MCP response exceeds the stdio response budget. The analysis result was not truncated. Export retained evidence to consume the complete analysis, or use complete CLI JSON output.\",\"reported_limits\":{\"boundary\":\"mcp-response\",\"default_receive_buffer_bytes\":10485760,\"result_budget_bytes\":10484736,\"max_string_code_units\":536869864,\"response_bytes_at_least\":10490366,\"response_code_units_at_least\":10490366,\"constraint\":\"receive-buffer\",\"evidence_id\":\"ev_bc5b1b9542aebc27479ae7a46cf4daa40f17d0c9ac17262f3d1cac355832a5e0\",\"evidence_reference\":{\"kind\":\"retained-evidence\",\"evidence_id\":\"ev_bc5b1b9542aebc27479ae7a46cf4daa40f17d0c9ac17262f3d1cac355832a5e0\"}}}}}"
+    }
+  ],
+  "isError": true
+}

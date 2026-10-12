@@ -1,0 +1,171 @@
+{
+  "healthy": true,
+  "scope": {
+    "mode": "explicit",
+    "clients": [
+      "codex"
+    ],
+    "providers": [
+      "ghidra"
+    ],
+    "skill": false,
+    "target": null
+  },
+  "scope_checks": [
+    {
+      "name": "node",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "24.12.0"
+    },
+    {
+      "name": "ghidra",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/Users/ogie/.local/share/rea/ghidra_12.1.4_PUBLIC"
+    },
+    {
+      "name": "ghidra-platform",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "darwin"
+    },
+    {
+      "name": "ghidra-architecture",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "arm64"
+    },
+    {
+      "name": "ghidra-installation",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/Users/ogie/.local/share/rea/ghidra_12.1.4_PUBLIC/Ghidra/application.properties"
+    },
+    {
+      "name": "ghidra-version",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "12.1.4"
+    },
+    {
+      "name": "ghidra-headless",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/Users/ogie/.local/share/rea/ghidra_12.1.4_PUBLIC/support/analyzeHeadless"
+    },
+    {
+      "name": "ghidra-native_decompiler",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/Users/ogie/.local/share/rea/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/os/mac_arm_64/decompile reports mach-o arm64, which matches darwin/arm64"
+    },
+    {
+      "name": "ghidra-java",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "21.0.12.1; 64-bit; JDK; /opt/homebrew/Cellar/openjdk@21/21.0.12.1/libexec/openjdk.jdk/Contents/Home; accepted a 64-bit full JDK 21 or newer"
+    },
+    {
+      "name": "registration:codex",
+      "ok": true,
+      "classification": "healthy",
+      "detail": "/Users/ogie/.codex/config.toml"
+    }
+  ],
+  "providerInspections": [
+    {
+      "id": "ghidra",
+      "configured": true,
+      "available": true,
+      "providerVersion": "12.1.4",
+      "registrationEnvironment": {
+        "GHIDRA_INSTALL_DIR": "/Users/ogie/.local/share/rea/ghidra_12.1.4_PUBLIC",
+        "JAVA_HOME": "/opt/homebrew/Cellar/openjdk@21/21.0.12.1/libexec/openjdk.jdk/Contents/Home"
+      },
+      "checks": [
+        {
+          "name": "configuration",
+          "ok": true,
+          "code": null,
+          "detail": "/Users/ogie/.local/share/rea/ghidra_12.1.4_PUBLIC",
+          "remediation": null,
+          "classification": "config_drift"
+        },
+        {
+          "name": "platform",
+          "ok": true,
+          "code": null,
+          "detail": "darwin",
+          "remediation": null,
+          "classification": "unsupported_host"
+        },
+        {
+          "name": "architecture",
+          "ok": true,
+          "code": null,
+          "detail": "arm64",
+          "remediation": null,
+          "classification": "unsupported_host"
+        },
+        {
+          "name": "installation",
+          "ok": true,
+          "code": null,
+          "detail": "/Users/ogie/.local/share/rea/ghidra_12.1.4_PUBLIC/Ghidra/application.properties",
+          "remediation": null,
+          "classification": "config_drift"
+        },
+        {
+          "name": "version",
+          "ok": true,
+          "code": null,
+          "detail": "12.1.4",
+          "remediation": null,
+          "classification": "config_drift"
+        },
+        {
+          "name": "headless",
+          "ok": true,
+          "code": null,
+          "detail": "/Users/ogie/.local/share/rea/ghidra_12.1.4_PUBLIC/support/analyzeHeadless",
+          "remediation": null,
+          "classification": "config_drift"
+        },
+        {
+          "name": "native_decompiler",
+          "ok": true,
+          "code": null,
+          "detail": "/Users/ogie/.local/share/rea/ghidra_12.1.4_PUBLIC/Ghidra/Features/Decompiler/os/mac_arm_64/decompile reports mach-o arm64, which matches darwin/arm64",
+          "remediation": null,
+          "classification": "config_drift"
+        },
+        {
+          "name": "java",
+          "ok": true,
+          "code": null,
+          "detail": "21.0.12.1; 64-bit; JDK; /opt/homebrew/Cellar/openjdk@21/21.0.12.1/libexec/openjdk.jdk/Contents/Home; accepted a 64-bit full JDK 21 or newer",
+          "remediation": null,
+          "classification": "config_drift"
+        }
+      ]
+    },
+    {
+      "id": "ida",
+      "configured": false,
+      "available": false,
+      "providerVersion": null,
+      "registrationEnvironment": {},
+      "checks": [
+        {
+          "name": "registration",
+          "ok": false,
+          "code": "not_configured",
+          "detail": "IDA MCP registration is not configured.",
+          "remediation": "Set REA_IDA_MCP_CONFIG to your upstream IDA MCP registration JSON; see docs/ida-provider.md.",
+          "classification": "missing_analysis_engine"
+        }
+      ]
+    }
+  ]
+}

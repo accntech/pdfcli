@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-13",
+  "platform": "macOS arm64",
+  "excel_version": "16.113.4",
+  "scope": "Synthetic integration regression for width-only fitting of independently specified table sections. No user documents included.",
+  "configuration": [
+    "--excel-fit-width",
+    "--excel-print-area",
+    "Parallel tables=A1:D90",
+    "--excel-print-area",
+    "Parallel tables=F1:I90"
+  ],
+  "before": {
+    "test_failed": true,
+    "failure": "CLI rejected --excel-print-area as an unknown option."
+  },
+  "after": {
+    "both_tables_span_multiple_pages": true,
+    "all_180_label_value_pairs_on_same_page": true,
+    "all_rows_appear_once": true,
+    "left_section_before_right_section": true,
+    "other_visible_summary_sheet_retained": true,
+    "outside_section_marker_excluded": true,
+    "blank_text_pages": 0,
+    "source_bytes_unchanged": true
+  },
+  "suite": {
+    "command": "cargo test --locked -- --include-ignored --test-threads=1",
+    "passed": 31,
+    "unit_tests": 3,
+    "integration_tests": 28,
+    "failed": 0,
+    "ignored": 0,
+    "integration_seconds": 19.8,
+    "log": "docs/evidence/runtime/excel-table-sections-tests.log"
+  },
+  "checks": {
+    "cargo_clippy_D_warnings": "pass",
+    "cargo_fmt_check": "pass",
+    "release_build": "pass"
+  },
+  "sha256": {
+    "tests/fixtures/excel-table-sections.xlsx": "a80f258dfae222b324230ee6594bb95b35fd151a7d3392a6d138ef2e710ddc3d",
+    "src/main.rs": "0beba385222bbb1281522c1f9cf75a92ac46cc328d8e28283eee3187bc9b1d0b",
+    "src/office.rs": "a657f0ab7ce300b1c5432ed5dcf798ac6909a5adf76ff17579d64843c0ea0652",
+    "src/office/excel.rs": "fc4f654703704af2378e29cc371a814f28f59519cbe3b8f26abeaed0b0e1c87c",
+    "src/office/macos.rs": "6ff0f0005ca98e1b5875a8e2ed5d055a1706e2e0ef5ee7a33913a50c55cb2465",
+    "src/office/excel.applescript": "54c2046661956acc1de3a3766adfae2f1acefbc1f4f2daf4c50c2db8e3b9e067",
+    "tests/merge.rs": "837ad7f52c0ee5f97ad656f43dcd612733b3851e388eaaa61a3195df3c493e49"
+  },
+  "behavior": [
+    "Default export continues to honor saved print layout.",
+    "Width fitting only constrains horizontal pagination; the vertical page limit remains 32767.",
+    "Explicit rectangular print sections are user-selectable and replace the target sheet print area on a private copy.",
+    "Named sheets must be present and visible in each Excel input.",
+    "All generated Office documents are closed without saving changes to their sources."
+  ]
+}

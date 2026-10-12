@@ -1,0 +1,48 @@
+{
+  "recorded_at": "2026-10-12T16:50:18.036532+00:00",
+  "command": "cargo test --locked --test merge -- --include-ignored --test-threads=1",
+  "exit_code": 0,
+  "tests_passed": 17,
+  "test_log": "runtime/legacy-office-tests.log",
+  "native_legacy_cases": [
+    "DOC to PDF",
+    "PPT to PDF",
+    "XLS with two visible sheets and one hidden sheet",
+    "seven-input PDF/DOC/XLS/PPT/DOCX/XLSX/PPTX merge"
+  ],
+  "application_versions": {
+    "Word": "16.113.4",
+    "Excel": "16.113.4",
+    "PowerPoint": "16.113.4"
+  },
+  "legacy_fixture_provenance": "../../tests/fixtures/legacy-provenance.json",
+  "legacy_source_hashes_unchanged": true,
+  "office_state_before": {
+    "Word": "0, msoAutomationSecurityLow",
+    "Excel": "0, msoAutomationSecurityLow",
+    "Powerpoint": "0, missing value"
+  },
+  "office_state_after": {
+    "Word": "0, msoAutomationSecurityLow",
+    "Excel": "0, msoAutomationSecurityLow",
+    "Powerpoint": "0, missing value"
+  },
+  "staging_folder_empty": true,
+  "libreoffice_disabled_in_legacy_tests": true,
+  "retained_output": {
+    "path": "runtime/cli-legacy-office.pdf",
+    "sha256": "5c93ff5b99a0076e60d6ecb08443cb040a1b6095b7823280621c18139e035578",
+    "pages": 7,
+    "page_text_order_verified_with": "pypdf"
+  },
+  "production_changes_required": false,
+  "test_harness_fix": "Inspect the synthetic first PDF page content stream; lopdf text extraction misses its inherited inline font dictionary. Native Office page text extraction and independent pypdf checks passed.",
+  "limitations": [
+    "Small synthetic fixtures, not exhaustive legacy Office compatibility.",
+    "RTF remains untested.",
+    "PowerPoint uses its existing macro policy when the advertised automation security property returns missing value."
+  ],
+  "cargo_clippy": "passed: cargo clippy --locked --all-targets -- -D warnings",
+  "cargo_fmt": "passed: cargo fmt --check",
+  "suite_duration_seconds": 10.87
+}

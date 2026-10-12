@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-13",
+  "platform": "macOS arm64",
+  "apps": {
+    "Word": "16.113.4",
+    "Excel": "16.113.4",
+    "PowerPoint": "16.113.4"
+  },
+  "scope": "Synthetic Excel per-sheet export regression. No user financial documents or extracted content included.",
+  "changes": [
+    "Export visible worksheets individually from the private original workbook by temporarily hiding other sheets.",
+    "Preserve scale, print areas, manual page breaks and per-sheet paper geometry; no default one-page fitting.",
+    "Remove only PDF pages proven to contain no painting operators; preserve text, image, chart, vector and annotation pages.",
+    "Keep native Office PDF outputs in the existing approved staging folder; clean partial exports on handled failures."
+  ],
+  "regression": {
+    "fixture": "tests/fixtures/excel-mixed-paper.xlsx",
+    "before": {
+      "pages": 6,
+      "expected_nonblank_pages": 5,
+      "test_failed_before_implementation": true
+    },
+    "after": {
+      "pages": 5,
+      "expected_page_content": [
+        "FIRST PRINT PAGE",
+        "SECOND PRINT PAGE",
+        "LETTER TOP",
+        "image-only page",
+        "LANDSCAPE VAT MARKER"
+      ],
+      "paper_dimensions_pt": {
+        "A4": [
+          595.28,
+          841.89
+        ],
+        "Letter": [
+          612,
+          792
+        ],
+        "landscape_Folio": [
+          936,
+          612
+        ]
+      },
+      "source_bytes_unchanged": true,
+      "hidden_sheet_excluded": true
+    }
+  },
+  "blank_page_unit_checks": [
+    "Nonpainting paths, clipping and graphics state are removable.",
+    "Text, image XObjects, vector painting, shadings and annotations are kept.",
+    "Unknown operators and malformed trailing content are kept."
+  ],
+  "suite": {
+    "command": "cargo test --locked -- --include-ignored --test-threads=1",
+    "passed": 29,
+    "unit_tests": 2,
+    "integration_tests": 27,
+    "failed": 0,
+    "ignored": 0,
+    "integration_seconds": 16.21,
+    "log": "docs/evidence/runtime/excel-sheet-export-tests.log"
+  },
+  "additional_native_check": "A workbook with one populated sheet and one entirely empty sheet exports one page and removes one blank page without a dialog.",
+  "checks": {
+    "clippy_D_warnings": "pass",
+    "fmt_check": "pass",
+    "release_build": "pass"
+  },
+  "sha256": {
+    "src/office/macos.rs": "82fadf14f9506028bb600d768da3e9d6fcb3175102b28727cd5e01b26727348f",
+    "src/office/excel.applescript": "f6cc0e6a21952eeb6e92e36f34999cfe4675161069fe6f01e5e3c5e26f78e779",
+    "src/pdf/blank.rs": "2b38d17314e7e50eb010605d754a44613c38116417eae82b2b193a3838d3185d",
+    "tests/merge.rs": "113b8482278f1f00361f8c071fe9b768dd5d85c7e1017e9077f46b12957c35d3",
+    "tests/fixtures/excel-mixed-paper.xlsx": "a9b6b400477855dd85d387691570ff4855f633ef550d9b51b318fb7da02b6f26"
+  },
+  "limitations": [
+    "Visibility changes require unprotected workbook structure.",
+    "Conservative blank detection retains painted white content and pages with only headers or footers.",
+    "Saved print areas and horizontal breaks are honored, including column splits."
+  ]
+}

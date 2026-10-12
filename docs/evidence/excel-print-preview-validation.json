@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-13",
+  "platform": "macOS arm64",
+  "excel_version": "16.113.4",
+  "scope": "Synthetic regression for preserving saved Excel print pagination by default. No user documents included.",
+  "fixture": {
+    "path": "tests/fixtures/excel-print-preview.xlsx",
+    "sha256": "ba672cb3094a049177d164ab70f51eb69eb3d244058ea55c354a5ee0e5095026"
+  },
+  "before_change": {
+    "page_count": 2,
+    "expected_page_count": 5,
+    "observed_result": "New regression failed with automatic fit-width normalization."
+  },
+  "after_change": {
+    "page_count": 5,
+    "page_markers": [
+      "TOP LEFT",
+      "BOTTOM LEFT",
+      "TOP RIGHT",
+      "BOTTOM RIGHT",
+      "LANDSCAPE SHEET"
+    ],
+    "hidden_sheet_excluded": true,
+    "content_outside_print_area_excluded": true,
+    "source_bytes_unchanged": true
+  },
+  "default_policy": "Do not change print areas, scale, page order, paper size, orientation or manual page breaks. Export via installed Microsoft Excel.",
+  "opt_in_policy": {
+    "flag": "--excel-fit-width",
+    "behavior": "Existing print-area trimming, page-break reset, one-page-wide fitting and empty-sheet exclusion on a private copy.",
+    "existing_pagination_and_single_cell_regressions": "pass"
+  },
+  "suite": {
+    "command": "cargo test --locked -- --include-ignored --test-threads=1",
+    "passed": 26,
+    "failed": 0,
+    "ignored": 0,
+    "seconds": 14.08,
+    "log": "docs/evidence/runtime/excel-print-preview-tests.log"
+  },
+  "checks": {
+    "cargo_fmt_check": "pass",
+    "cargo_clippy_all_targets_D_warnings": "pass",
+    "release_build": "pass"
+  },
+  "implementation_files": {
+    "src/main.rs": "74845dd739f0b2412d9483c979f0fe3abf39dd146db6228d43e0912fc0c1676b",
+    "src/office/macos.rs": "68c5d7a80738080b7564542950cd16187758bf21a0cb9986470eb6c6e289e994",
+    "src/office/excel.applescript": "ba70a7dea37e0ae6d1faad76bdf307919e654e248bf29976c1e4849fc8f5d8d7",
+    "tests/merge.rs": "9212af26b523c3bc820bbc40dd4082309d40d32f4163c82aca95e7d9c07e7e4f"
+  },
+  "limitations": [
+    "Saved print setup can produce blank pages, split columns or omit visible content; default export preserves that behavior.",
+    "Native Excel PDF saving and the macOS Print dialog may place content differently on sheets without explicit paper sizes; exact printer-preview pixel identity is not claimed."
+  ]
+}

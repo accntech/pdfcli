@@ -1,0 +1,18 @@
+{
+  "source_remained_open": true,
+  "source_bytes_unchanged": true,
+  "office_state_before": {
+    "Word": "0, msoAutomationSecurityLow",
+    "Excel": "0, msoAutomationSecurityLow",
+    "Powerpoint": "0, missing value"
+  },
+  "office_state_after": {
+    "Word": "0, msoAutomationSecurityLow",
+    "Excel": "0, msoAutomationSecurityLow",
+    "Powerpoint": "0, missing value"
+  },
+  "output": "cli-native-office.pdf",
+  "output_sha256": "4bc8e48e456bf5caa6436011418f4ac1481b3f46353f55e8b27682c7d8f93f93",
+  "cli_stdout": "Merged 5 files, 5 pages -> /Users/ogie/RustProjects/pdfcli/docs/evidence/runtime/cli-native-office.pdf\n",
+  "cli_stderr": "warning: /Users/ogie/RustProjects/pdfcli/docs/evidence/runtime/rea-base.pdf: page merge omits document-level Outlines, Names\nConverting /Users/ogie/Library/Caches/pdfcli/office/ownership-test-ysjpazvy.docx\nConverting /Users/ogie/RustProjects/pdfcli/tests/fixtures/sample.xlsx\nConverting /Users/ogie/RustProjects/pdfcli/tests/fixtures/sample.pptx\nConverting /Users/ogie/RustProjects/pdfcli/tests/fixtures/sample.docx\n"
+}

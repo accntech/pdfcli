@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-13",
+  "command": "cargo test --locked -- --include-ignored --test-threads=1",
+  "runs": [
+    {
+      "log": "docs/evidence/runtime/page-edit-tests.log",
+      "passed": 25,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 15.07
+    },
+    {
+      "log": "docs/evidence/runtime/page-edit-tests-repeat.log",
+      "passed": 25,
+      "failed": 0,
+      "ignored": 0,
+      "seconds": 15.01
+    }
+  ],
+  "commands_added": [
+    "remove INPUT --pages LIST -o OUTPUT",
+    "reorder INPUT --pages LIST -o OUTPUT"
+  ],
+  "checks": [
+    "1-based single pages, ascending and descending ranges",
+    "Duplicate, overlapping, empty, malformed and out-of-bounds selections rejected",
+    "Reorder requires every page exactly once; removal retains at least one",
+    "Originals and aliases protected; failed edits leave prior output intact",
+    "Retained local destinations follow pages; removed destinations disabled; external links preserved",
+    "Removed-page content pruned in synthetic fixture",
+    "Inherited and overridden geometry/resources render pixel-identically using Poppler",
+    "Legacy and modern native Office regression suite passes without UI confirmation"
+  ],
+  "excel_regressions": {
+    "single_cell_before": "15-second timeout at print area $A$1:$A$1; native UI showed confirmation dialog",
+    "single_cell_fix": "Include one adjacent empty column in the staged print area without changing global alert preferences",
+    "sheet_search_fix": "Activate each visible worksheet before Find"
+  },
+  "build": "cargo build --locked --release passed",
+  "lint": "cargo clippy --locked --all-targets -- -D warnings passed",
+  "format": "cargo fmt --check passed",
+  "source_sha256": {
+    "src/main.rs": "412dd9aab465e54625cbba15da18b507d040966fc9d94549ebe8ea828b84d8e0",
+    "src/pdf.rs": "dccd91ae3d0ed76d5f603c06467a94ea3914aa0763dfbb0059c5ba4dbbc21e50",
+    "src/pdf/pages.rs": "64dbaff85ac68b6a08cded5da4f2bc705dff8872c93b193cd821d87395fc89f2",
+    "src/office/excel.applescript": "b1179e720df075c70c340348b9c305441a72e2ca239ac565c0c4db46a1fbf551",
+    "tests/merge.rs": "4e14b67679175dbf16183533933b5611eb4a8049678214d48535b2baa9aaaacd"
+  },
+  "office_staging_empty": true
+}

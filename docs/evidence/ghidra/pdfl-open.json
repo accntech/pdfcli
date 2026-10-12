@@ -1,0 +1,9 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"error\":{\"code\":\"capability_unavailable\",\"category\":\"unsupported_provider\",\"message\":\"The selected analysis provider does not support this target. Choose another provider or open a supported extracted binary.\",\"retryable\":false,\"remediation\":{\"action\":\"The selected analysis provider does not support this target. Choose another provider or open a supported extracted binary.\"},\"details\":{\"operation\":\"open_binary\",\"selection_reason\":\"target_unsupported\",\"requested_provider_id\":\"ghidra\",\"candidate_ids\":[\"ghidra\",\"hopper\",\"ida\"],\"rejections\":[{\"provider_id\":\"ghidra\",\"code\":\"architecture_unsupported\",\"reason\":\"Ghidra v1 cannot enforce the selected architecture when importing a universal Mach-O; analyze a thinned Mach-O slice instead.\",\"diagnostics\":{\"host_platform\":\"darwin\",\"target_kind\":\"executable\",\"target_format\":\"mach-o\",\"architecture\":\"arm64\",\"available_architectures\":[\"x86_64\",\"arm64\"],\"executable_role\":null,\"managed\":null}},{\"provider_id\":\"hopper\",\"code\":\"executable_missing\",\"reason\":\"Hopper launcher is missing or not executable: /Applications/Hopper Disassembler.app/Contents/MacOS/hopper\",\"diagnostics\":{\"launcher_path\":\"/Applications/Hopper Disassembler.app/Contents/MacOS/hopper\",\"platform\":\"darwin\"}},{\"provider_id\":\"ida\",\"code\":\"not_configured\",\"reason\":\"Set REA_IDA_MCP_CONFIG to an upstream IDA MCP JSON registration; see docs/ida-provider.md.\",\"diagnostics\":{\"configured\":false,\"live_connection_probed\":false}}]}}}"
+    }
+  ],
+  "isError": true
+}

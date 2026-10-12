@@ -1,0 +1,17 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"result\":{\"path\":\"/Users/ogie/RustProjects/pdfcli/target/acrobat-arm64/Acrobat\",\"format\":\"mach-o\",\"kind\":\"executable\",\"sha256\":\"863f10faf69df6bb26432906dbaa6a0df59110e53571c7c78493f7b4190d3c22\",\"architecture\":\"arm64\"}}"
+    }
+  ],
+  "structuredContent": {
+    "result": {
+      "path": "/Users/ogie/RustProjects/pdfcli/target/acrobat-arm64/Acrobat",
+      "format": "mach-o",
+      "kind": "executable",
+      "sha256": "863f10faf69df6bb26432906dbaa6a0df59110e53571c7c78493f7b4190d3c22",
+      "architecture": "arm64"
+    }
+  }
+}
