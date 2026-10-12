@@ -1,0 +1,19 @@
+[package]
+name = "pdfcli"
+version = "0.1.0"
+edition = "2024"
+description = "Merge PDF and Office files, compress PDFs, and remove or reorder PDF pages"
+license = "MIT"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive", "env"] }
+lopdf = "0.45"
+tempfile = "3"
+same-file = "1"
+url = "2"
+wait-timeout = "0.2"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+

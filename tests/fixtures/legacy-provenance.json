@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-10-12T16:46:47.772117+00:00",
+  "fixtures": [
+    {
+      "file": "sample.doc",
+      "sha256": "134d7b857e8f2f46e7e52438af6ee04bb531e20ddd11b3909a520b030cb9e34b",
+      "source": "sample.docx",
+      "source_sha256": "1104bfb220e9ec9823913db3aa4987260ad1b95d2d19639983da828c8dfff451",
+      "application": "Word",
+      "version": "16.113.4",
+      "save_command": "save as ownedDoc file name outputPath file format format document97 add to recent files false",
+      "binary_compound_header_verified": true
+    },
+    {
+      "file": "sample.xls",
+      "sha256": "0b59480b6cf6705f1d2997f304c9b8db7d39292e600f6a0895f17534d728b3d9",
+      "source": "sample.xlsx",
+      "source_sha256": "479e2d4f8071ea48c20c3e0f8663872dfb9e13bd877cc95dc94bed31e58cac1f",
+      "application": "Excel",
+      "version": "16.113.4",
+      "save_command": "save workbook as ownedDoc filename outputPath file format Excel98to2004 file format",
+      "binary_compound_header_verified": true
+    },
+    {
+      "file": "sample.ppt",
+      "sha256": "b2f04b1677374d5665817a1c7432f99603c42195b5f87fb8050995ca50952eeb",
+      "source": "sample.pptx",
+      "source_sha256": "88e77d06570e0e9c148a0d0f08a7147c0f6c940b1184577cbd5554c974552644",
+      "application": "PowerPoint",
+      "version": "16.113.4",
+      "save_command": "save ownedDoc in (POSIX file outputPath) as save as presentation",
+      "binary_compound_header_verified": true
+    },
+    {
+      "file": "multiple-sheets.xls",
+      "sha256": "3e44f421540ff20d59bea20eab53bae92aa55a8010893285b8bdd9ec752aea51",
+      "source": "multiple-sheets.xlsx",
+      "source_sha256": "13f44c7558d3f716f5d31c9dec7f4555cb4bb22dbcd6675d1b20288f3445729c",
+      "application": "Excel",
+      "version": "16.113.4",
+      "save_command": "save workbook as ownedDoc filename outputPath file format Excel98to2004 file format",
+      "binary_compound_header_verified": true
+    }
+  ]
+}
