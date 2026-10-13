@@ -23,13 +23,13 @@ struct Cli {
 #[derive(Subcommand)]
 enum Commands {
     #[cfg_attr(
-        target_os = "macos",
+        any(target_os = "macos", windows),
         command(
             about = "Convert with Microsoft Office when installed, otherwise LibreOffice, then merge PDF pages"
         )
     )]
     #[cfg_attr(
-        not(target_os = "macos"),
+        not(any(target_os = "macos", windows)),
         command(about = "Convert Office files locally with LibreOffice, then merge PDF pages")
     )]
     Merge(MergeArgs),

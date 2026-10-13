@@ -873,7 +873,7 @@ fn rendered_pages_match_their_sources() {
     }
 }
 
-#[cfg(unix)]
+#[cfg(all(unix, not(target_os = "macos")))]
 #[test]
 fn office_missing_output_and_timeout_are_errors() {
     use std::os::unix::fs::PermissionsExt;
@@ -907,7 +907,7 @@ fn office_missing_output_and_timeout_are_errors() {
 }
 
 #[test]
-#[ignore = "requires Microsoft Office on macOS, LibreOffice elsewhere"]
+#[ignore = "requires Microsoft Office on macOS/Windows, LibreOffice on Linux"]
 fn real_office_converts_docx_xlsx_pptx_and_same_named_inputs() {
     let dir = tempdir().unwrap();
     let fixture = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures");
@@ -930,9 +930,9 @@ fn real_office_converts_docx_xlsx_pptx_and_same_named_inputs() {
         &same.join("sample.docx"),
     ]);
     #[cfg(target_os = "macos")]
-    command
-        .env("PATH", "/usr/bin:/bin")
-        .env("PDFCLI_SOFFICE", "/not-a-libreoffice-executable");
+    command.env("PATH", "/usr/bin:/bin");
+    #[cfg(any(target_os = "macos", windows))]
+    command.env("PDFCLI_SOFFICE", "/not-a-libreoffice-executable");
     assert_ok(&command.output().unwrap());
     for (path, before) in originals {
         assert_eq!(fs::read(path).unwrap(), before, "Office input was modified");
@@ -953,9 +953,9 @@ fn real_office_converts_docx_xlsx_pptx_and_same_named_inputs() {
     }
 }
 
-#[cfg(target_os = "macos")]
+#[cfg(any(target_os = "macos", windows))]
 #[test]
-fn macos_help_describes_microsoft_preference_and_libreoffice_fallback() {
+fn help_describes_microsoft_preference_and_libreoffice_fallback() {
     let result = run(&[Path::new("merge"), Path::new("--help")]);
     assert_ok(&result);
     let help = String::from_utf8_lossy(&result.stdout);
@@ -964,7 +964,7 @@ fn macos_help_describes_microsoft_preference_and_libreoffice_fallback() {
     assert!(help.contains("--soffice"));
 }
 
-#[cfg(unix)]
+#[cfg(all(unix, not(target_os = "macos")))]
 #[test]
 fn office_fallback_converts_all_opendocument_types_in_order() {
     use std::os::unix::fs::PermissionsExt;
@@ -1020,6 +1020,7 @@ cp "$(dirname "$0")/$filter.pdf" "${input%.*}.pdf"
     }
 }
 
+#[cfg(not(any(target_os = "macos", windows)))]
 #[test]
 fn office_fallback_reports_missing_executable_without_replacing_output() {
     let dir = tempdir().unwrap();
@@ -1041,38 +1042,44 @@ fn office_fallback_reports_missing_executable_without_replacing_output() {
     assert_eq!(fs::read(&out).unwrap(), b"keep existing output");
 }
 
-#[cfg(target_os = "macos")]
+#[cfg(any(target_os = "macos", windows))]
 #[test]
-fn office_fallback_rejects_explicit_excel_options() {
+#[ignore = "requires installed Microsoft Office apps and desktop automation"]
+fn real_office_prefers_microsoft_for_opendocument_files() {
     let dir = tempdir().unwrap();
-    let input = dir.path().join("document.ods");
+    let fixture = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures");
+    let inputs: Vec<_> = ["sample.odt", "sample.ods", "sample.odp"]
+        .iter()
+        .map(|name| fixture.join(name))
+        .collect();
+    let originals: Vec<_> = inputs.iter().map(|p| fs::read(p).unwrap()).collect();
     let out = dir.path().join("out.pdf");
-    fs::write(&input, b"fixture").unwrap();
-    for options in [
-        vec!["--excel-fit-width"],
-        vec!["--excel-preserve-layout"],
-        vec!["--excel-print-area", "Sheet1=A1:D20"],
-    ] {
-        let result = Command::new(env!("CARGO_BIN_EXE_pdfcli"))
-            .args(["merge", "-o"])
-            .arg(&out)
-            .arg(&input)
-            .args(options)
-            .env("PDFCLI_SOFFICE", dir.path().join("missing-soffice"))
-            .output()
-            .unwrap();
-        assert!(!result.status.success());
+    let result = Command::new(env!("CARGO_BIN_EXE_pdfcli"))
+        .args(["merge", "--timeout", "30", "-o"])
+        .arg(&out)
+        .args(&inputs)
+        .env("PDFCLI_SOFFICE", dir.path().join("missing-soffice"))
+        .output()
+        .unwrap();
+    assert_ok(&result);
+    let doc = Document::load(out).unwrap();
+    assert_eq!(doc.get_pages().len(), 3);
+    for (index, marker) in ["WORD MARKER", "SHEET MARKER", "SLIDE MARKER"]
+        .iter()
+        .enumerate()
+    {
         assert!(
-            String::from_utf8_lossy(&result.stderr)
-                .contains("Excel options require Microsoft Excel export"),
-            "{}",
-            String::from_utf8_lossy(&result.stderr)
+            doc.extract_text(&[index as u32 + 1])
+                .unwrap()
+                .contains(marker)
         );
-        assert!(!out.exists());
+    }
+    for (input, original) in inputs.iter().zip(originals) {
+        assert_eq!(fs::read(input).unwrap(), original);
     }
 }
 
-#[cfg(target_os = "macos")]
+#[cfg(any(target_os = "macos", windows))]
 #[test]
 #[ignore = "requires installed Microsoft Excel and Automation permission"]
 fn real_office_excel_exports_all_visible_sheets() {
@@ -1412,7 +1419,7 @@ fn real_office_excel_detects_native_tables_and_protects_spanning_images() {
     assert_eq!(fs::read(&input).unwrap(), original);
 }
 
-#[cfg(target_os = "macos")]
+#[cfg(any(target_os = "macos", windows))]
 fn assert_native_legacy_conversion(name: &str, expected: &[&str]) {
     let dir = tempdir().unwrap();
     let fixture = Path::new(env!("CARGO_MANIFEST_DIR"))
@@ -1426,14 +1433,15 @@ fn assert_native_legacy_conversion(name: &str, expected: &[&str]) {
     let input = input_directory.join(name);
     fs::copy(&fixture, &input).unwrap();
     let out = dir.path().join("legacy.pdf");
-    let result = Command::new(env!("CARGO_BIN_EXE_pdfcli"))
+    let mut command = Command::new(env!("CARGO_BIN_EXE_pdfcli"));
+    command
         .args(["merge", "-o"])
         .arg(&out)
         .arg(&input)
-        .env("PATH", "/usr/bin:/bin")
-        .env("PDFCLI_SOFFICE", "/not-a-libreoffice-executable")
-        .output()
-        .unwrap();
+        .env("PDFCLI_SOFFICE", "/not-a-libreoffice-executable");
+    #[cfg(target_os = "macos")]
+    command.env("PATH", "/usr/bin:/bin");
+    let result = command.output().unwrap();
     assert_ok(&result);
     assert_eq!(fs::read(&input).unwrap(), original, "Legacy source changed");
     let doc = Document::load(&out).unwrap();
@@ -1453,14 +1461,14 @@ fn assert_native_legacy_conversion(name: &str, expected: &[&str]) {
     );
 }
 
-#[cfg(target_os = "macos")]
+#[cfg(any(target_os = "macos", windows))]
 #[test]
 #[ignore = "requires installed Microsoft Word and Automation permission"]
 fn real_office_legacy_doc() {
     assert_native_legacy_conversion("sample.doc", &["WORD MARKER"]);
 }
 
-#[cfg(target_os = "macos")]
+#[cfg(any(target_os = "macos", windows))]
 #[test]
 #[ignore = "requires installed Microsoft Excel and Automation permission"]
 fn real_office_legacy_xls_visible_sheets() {
@@ -1491,14 +1499,14 @@ fn real_office_excel_single_cell_print_areas_do_not_prompt() {
     assert_eq!(fs::read(&input).unwrap(), original);
 }
 
-#[cfg(target_os = "macos")]
+#[cfg(any(target_os = "macos", windows))]
 #[test]
 #[ignore = "requires installed Microsoft PowerPoint and Automation permission"]
 fn real_office_legacy_ppt() {
     assert_native_legacy_conversion("sample.ppt", &["SLIDE MARKER"]);
 }
 
-#[cfg(target_os = "macos")]
+#[cfg(any(target_os = "macos", windows))]
 #[test]
 #[ignore = "requires installed Microsoft Office apps and Automation permission"]
 fn real_office_legacy_and_modern_inputs_preserve_order() {
@@ -1522,15 +1530,16 @@ fn real_office_legacy_and_modern_inputs_preserve_order() {
     let first = dir.path().join("first.pdf");
     pdf(&first, &["PDF FIRST"]);
     let out = dir.path().join("mixed-legacy.pdf");
-    let result = Command::new(env!("CARGO_BIN_EXE_pdfcli"))
+    let mut command = Command::new(env!("CARGO_BIN_EXE_pdfcli"));
+    command
         .args(["merge", "-o"])
         .arg(&out)
         .arg(&first)
         .args(originals.iter().map(|(path, _)| path))
-        .env("PATH", "/usr/bin:/bin")
-        .env("PDFCLI_SOFFICE", "/not-a-libreoffice-executable")
-        .output()
-        .unwrap();
+        .env("PDFCLI_SOFFICE", "/not-a-libreoffice-executable");
+    #[cfg(target_os = "macos")]
+    command.env("PATH", "/usr/bin:/bin");
+    let result = command.output().unwrap();
     assert_ok(&result);
     for (path, bytes) in originals {
         assert_eq!(fs::read(path).unwrap(), bytes, "Office source changed");

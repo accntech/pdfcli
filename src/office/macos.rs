@@ -26,12 +26,7 @@ pub struct ExcelOptions<'a> {
 }
 
 fn installed_application(extension: &str, directories: &[PathBuf]) -> Option<&'static str> {
-    let app = match extension {
-        "doc" | "docx" | "rtf" => "Word",
-        "xls" | "xlsx" => "Excel",
-        "ppt" | "pptx" => "PowerPoint",
-        _ => return None,
-    };
+    let app = super::microsoft_application(extension)?;
     directories
         .iter()
         .any(|directory| directory.join(format!("Microsoft {app}.app")).is_dir())
@@ -81,7 +76,7 @@ pub fn convert(
                 || (!excel_options.fit_width
                     && !excel_options.preserve_layout
                     && excel_options.print_areas.is_empty()),
-            "Excel options require Microsoft Excel export of .xls or .xlsx files; install Microsoft Excel or omit the Excel options to use LibreOffice"
+            "Excel options require Microsoft Excel export of .xls, .xlsx or .ods files; install Microsoft Excel or omit the Excel options to use LibreOffice"
         );
         let soffice =
             super::libreoffice::find_soffice(converter.soffice.as_deref()).with_context(|| {
@@ -393,27 +388,27 @@ mod tests {
         fs::create_dir_all(&directories[1]).unwrap();
         // A file with the bundle's name is not an installed application.
         fs::write(directories[0].join("Microsoft Excel.app"), b"not an app").unwrap();
-        for extension in ["doc", "docx", "rtf"] {
+        for extension in ["doc", "docx", "rtf", "odt"] {
             assert_eq!(installed_application(extension, &directories), Some("Word"));
         }
-        for extension in ["xls", "xlsx", "ppt", "pptx", "odt", "ods", "odp"] {
+        for extension in ["xls", "xlsx", "ppt", "pptx", "ods", "odp"] {
             assert_eq!(installed_application(extension, &directories), None);
         }
         fs::create_dir(directories[1].join("Microsoft Excel.app")).unwrap();
         fs::create_dir(directories[1].join("Microsoft PowerPoint.app")).unwrap();
-        for extension in ["xls", "xlsx"] {
+        for extension in ["xls", "xlsx", "ods"] {
             assert_eq!(
                 installed_application(extension, &directories),
                 Some("Excel")
             );
         }
-        for extension in ["ppt", "pptx"] {
+        for extension in ["ppt", "pptx", "odp"] {
             assert_eq!(
                 installed_application(extension, &directories),
                 Some("PowerPoint")
             );
         }
-        for extension in ["odt", "ods", "odp", "pdf", "unknown"] {
+        for extension in ["pdf", "unknown"] {
             assert_eq!(installed_application(extension, &directories), None);
         }
     }
@@ -457,6 +452,86 @@ printf 'exported by LibreOffice' > "${input%.*}.pdf"
     }
 
     #[test]
+    fn fallback_errors_and_timeouts_are_reported_without_locking_office() {
+        let dir = tempfile::tempdir().unwrap();
+        let executable = dir.path().join("soffice");
+        let input = dir.path().join("input.odt");
+        fs::write(&input, b"original").unwrap();
+        let mut converter = find_converter(Some(&executable)).unwrap();
+        converter.application_directories.clear();
+        let run = |converter: &mut Converter, name: &str| {
+            convert(
+                converter,
+                &input,
+                "odt",
+                &dir.path().join(name),
+                Duration::from_secs(1),
+                &ExcelOptions::default(),
+            )
+        };
+        assert!(
+            format!("{:#}", run(&mut converter, "missing").unwrap_err())
+                .contains("LibreOffice executable not found")
+        );
+        fs::write(&executable, "#!/bin/sh\nexit 0\n").unwrap();
+        fs::set_permissions(&executable, fs::Permissions::from_mode(0o755)).unwrap();
+        assert!(
+            run(&mut converter, "empty")
+                .unwrap_err()
+                .to_string()
+                .contains("produce a PDF")
+        );
+        fs::write(&executable, "#!/bin/sh\nexec sleep 30\n").unwrap();
+        let start = Instant::now();
+        assert!(
+            run(&mut converter, "timeout")
+                .unwrap_err()
+                .to_string()
+                .contains("timed out")
+        );
+        assert!(start.elapsed() < Duration::from_secs(5));
+        assert!(converter.lock.is_none());
+        assert_eq!(fs::read(input).unwrap(), b"original");
+    }
+
+    #[test]
+    fn fallback_rejects_explicit_excel_options_for_ods_too() {
+        let dir = tempfile::tempdir().unwrap();
+        let mut converter = find_converter(Some(&dir.path().join("missing-soffice"))).unwrap();
+        converter.application_directories.clear();
+        let areas = ["Sheet1=A1:D20".parse().unwrap()];
+        for options in [
+            ExcelOptions {
+                fit_width: true,
+                ..Default::default()
+            },
+            ExcelOptions {
+                preserve_layout: true,
+                ..Default::default()
+            },
+            ExcelOptions {
+                print_areas: &areas,
+                ..Default::default()
+            },
+        ] {
+            let result = convert(
+                &mut converter,
+                &dir.path().join("input.ods"),
+                "ods",
+                dir.path(),
+                Duration::from_secs(1),
+                &options,
+            );
+            assert!(
+                result
+                    .unwrap_err()
+                    .to_string()
+                    .contains("Excel options require Microsoft Excel export")
+            );
+        }
+    }
+
+    #[test]
     #[ignore = "requires LibreOffice"]
     fn real_libreoffice_fallback_converts_modern_and_legacy_office_files() {
         let dir = tempfile::tempdir().unwrap();
@@ -472,6 +547,9 @@ printf 'exported by LibreOffice' > "${input%.*}.pdf"
             ("xlsx", "SHEET MARKER"),
             ("ppt", "SLIDE MARKER"),
             ("pptx", "SLIDE MARKER"),
+            ("odt", "WORD MARKER"),
+            ("ods", "SHEET MARKER"),
+            ("odp", "SLIDE MARKER"),
         ] {
             let input = fixture.join(format!("sample.{extension}"));
             let original = fs::read(&input).unwrap();
